@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float salario, comissao, vendas;
+    cout << "Digite seu salario: ";
+    cin >> salario;
+    cout << "Digite a quantidade vendida: ";
+    cin >> vendas;
+    comissao = 4.0 / 100 * vendas;
+    cout << "A sua comissão é de: " << comissao << endl;
+    cout << "O seu salário final é de:" << salario + comissao <<endl;
+
+    return 0;
+}
