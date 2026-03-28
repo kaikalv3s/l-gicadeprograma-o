@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float pesoemkilos, pesoemgramas;
+    cout << "Digite seu peso em kilos: ";
+    cin >> pesoemkilos;
+    pesoemgramas = pesoemkilos * 1000;
+    cout << "Seu peso em gramas é: " << pesoemgramas <<endl;
+    
+    return 0;
+}
