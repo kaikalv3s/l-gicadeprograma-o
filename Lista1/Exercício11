@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float salariominimo, seusalario, quantsalario ;
+    cout << "Qual o valor do salario mínimo: ";
+    cin >> salariominimo;
+    cout << "Digite seu salário: ";
+    cin >> seusalario;
+    quantsalario = seusalario / salariominimo;
+    cout <<"Você recebe " <<quantsalario << " salario(s) minimo(s)" << endl;
+    
+    return 0;
+}
