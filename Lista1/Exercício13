@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float raio, comprimento, area, volume;
+    float pi = 3.1416;
+    cout <<"Digite o valor do raio ";
+    cin >> raio;
+    comprimento = 2 * pi * raio;
+    cout <<"O comprimento da esfera é " <<comprimento <<endl;
+    area = raio * raio * 4 * pi;
+    cout <<"A área da esfera é " <<area <<endl;
+    volume = 4.0/3.0 * pi * (raio * raio * raio);
+    cout <<"O volume da esfera é " <<volume <<endl;
+
+    return 0;
+}
