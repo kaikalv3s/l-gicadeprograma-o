@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float horas, salarioMin, horasExtra, valorHora, valorHoraExtras, salarioBruto, valorExtra, salarioFinal;
+    cout << "Digite as horas trabalhadas: ";
+    cin >> horas;
+
+    cout << "Digite o salario minimo: ";
+    cin >> salarioMin;
+    cout << "Digite as horas extras: ";
+    cin >> horasExtra;
+    valorHora = salarioMin / 8;
+    valorHoraExtras = salarioMin / 4;
+    salarioBruto = horas * valorHora;
+    valorExtra = horasExtra * valorHoraExtras;
+    salarioFinal = salarioBruto + valorExtra;
+    cout << "Salario bruto: " << salarioBruto << endl;
+    cout << "Valor das horas extras: " << valorExtra << endl;
+    cout << "Salario final: " << salarioFinal << endl;
+
+    return 0;
+}
