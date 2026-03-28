@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int anodenascimento, anoatual, idade, meses, dias, semanas;
+    cout <<"Digite o ano atual ";
+    cin >>anoatual;
+    cout <<"Digite seu ano de nascimento ";    
+    cin >> anodenascimento;
+    idade = anoatual - anodenascimento;
+    cout <<"Você tem  " <<idade <<" anos" <<endl;
+    meses = idade * 12;
+    cout <<"Sua idade em meses é " <<meses <<" meses" <<endl;
+    dias = idade * 365;
+    cout <<"Sua idade em dias é " <<dias <<" dias" <<endl;
+    semanas = dias / 7;
+    cout <<"Sua idade em semanas é " <<semanas <<" semanas" <<endl;
+    return 0;
+}
