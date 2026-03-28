@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float area, basemaior, basemenor, altura ;
+    cout << "Digite a base maior: ";
+    cin >> basemaior;
+    cout << "Digite a base menor: ";
+    cin >> basemenor;
+    cout << "Digite a altura: ";
+    cin >> altura;
+    area = (basemaior + basemenor) * altura / 2; 
+    cout <<"A área do trapezio é: " <<area <<endl;
+    
+    return 0;
+}
