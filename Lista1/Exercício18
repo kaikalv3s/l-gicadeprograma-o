@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    
+    float salariobruto, percentual, salarioliquido, valorimposto;
+    
+    cout << "Digite seu salário bruto ";
+    cin >> salariobruto;
+    cout << "Digite seu percentual de imposto ";
+    cin >> percentual;
+    valorimposto = percentual / 100 * salariobruto;
+    salarioliquido = salariobruto - valorimposto;
+    cout << "O valor do imposto é de: " <<valorimposto <<endl;
+    cout << "Seu salário é " <<salarioliquido <<endl;
+    
+    return 0;
+    
+}
