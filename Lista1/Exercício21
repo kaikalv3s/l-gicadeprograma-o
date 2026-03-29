@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    const float PERCENTUAL_CUSTO = 0.8;
+    
+    float precoVenda, custoProducao, lucro;
+    
+    cout << "Digite o preco de venda do caminhao de lenha: ";
+    cin >> precoVenda;
+    custoProducao = precoVenda * PERCENTUAL_CUSTO;
+    lucro = precoVenda - custoProducao;
+    cout << "O custo de producao foi: " << custoProducao << endl;
+    cout << "O lucro obtido foi: " << lucro << endl;
+    
+    return 0;
+}
