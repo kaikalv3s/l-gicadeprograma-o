@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float horas, salarioMin, valorHora, salarioBruto, imposto, salarioFinal;
+    
+    cout << "Digite o numero de horas trabalhadas: ";
+    cin >> horas;
+    
+    cout << "Digite o valor do salario minimo: ";
+    cin >> salarioMin;
+    
+    valorHora = salarioMin / 2;
+    
+    salarioBruto = horas * valorHora;
+    
+    imposto = salarioBruto * 0.03;
+    
+    cout << "Salario a receber: " << salarioFinal << endl;
+    
+    return 0;
+}
