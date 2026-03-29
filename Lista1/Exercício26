@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float peso, engor15, emag20, pesoengor, pesoemag;
+    
+    cout<< "Digite seu peso atual ";
+    cin>> peso;
+    engor15 = peso * (15.0 / 100.0);
+    pesoengor = engor15 + peso;
+    cout<<"Se você engordar 15% seu novo peso será " <<pesoengor <<endl;
+    emag20 = peso * (20.0 / 100.0);
+    pesoemag = peso - emag20;
+    cout<<"Se você emagrecer 20% seu novo peso será " <<pesoemag;
+    
+    
+    
+    return 0;
+}
