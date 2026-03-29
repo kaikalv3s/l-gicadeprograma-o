@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float largura, comprimento, area, potencia;
+
+    cout << "Digite a largura do comodo: ";
+    cin >> largura;
+
+    cout << "Digite o comprimento do comodo: ";
+    cin >> comprimento;
+
+    area = largura * comprimento;
+    potencia = area * 18;
+
+    cout << "Area do comodo: " << area << " m2" << endl;
+    cout << "Potencia de iluminacao necessaria: " << potencia << " W" << endl;
+
+    return 0;
+}
