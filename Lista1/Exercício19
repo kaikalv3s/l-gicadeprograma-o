@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    const float CPMF = 0.38; 
+    
+    float salario, cheque1, cheque2, saldo, taxa1, taxa2;
+    
+    cout << "Digite o valor do salario: ";
+    cin >> salario;
+    cout << "Digite o valor do primeiro cheque: ";
+    cin >> cheque1;
+    cout << "Digite o valor do segundo cheque: ";
+    cin >> cheque2;
+    saldo = salario;
+    taxa1 = cheque1 * (CPMF / 100);
+    taxa2 = cheque2 * (CPMF / 100);
+    saldo = saldo - cheque1 - taxa1;
+    saldo = saldo - cheque2 - taxa2;
+    cout << "Saldo final: " << saldo << endl;
+    
+    return 0;
+}
