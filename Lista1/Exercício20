@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float peso, altura, imc;
+    
+    cout <<"Qual o seu peso em kilos? ";
+    cin >> peso;
+    cout << "Qual sua altura em metros? ";
+    cin >> altura;
+    imc = peso / (altura * altura);
+    cout <<"Seu IMC é de " <<imc <<endl;
+    
+    return 0;
+}
