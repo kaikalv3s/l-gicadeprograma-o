@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    
+    float angulo1, angulo2, angulo3;
+    cout <<"Digite o primeiro ângulo ";
+    cin >> angulo1;
+    cout <<"Digite o segundo ângulo ";
+    cin >> angulo2;
+    angulo3 = 180 - angulo1 - angulo2;
+    cout <<"O terceiro angulo é " << angulo3 <<endl;
+    
+    return 0;
+    
+}
