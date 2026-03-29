@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    float numero;
+
+    cout << "Digite um numero real: ";
+    cin >> numero;
+
+    int parteInteira = (int)numero;
+    float parteFracionaria = numero - parteInteira;
+    float arredondado = round(numero);
+
+    cout << "Parte inteira: " << parteInteira << endl;
+    cout << "Parte fracionaria: " << parteFracionaria << endl;
+    cout << "Arredondamento: " << arredondado << endl;
+
+    return 0;
+}
