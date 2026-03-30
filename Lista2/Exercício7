@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float preço, codigo;
+
+    cout << "Digite o preço do seu produto: " <<endl;
+    cin>> preço;
+    cout << "Digite o código do seu produto: " <<endl;
+    cin >> codigo;
+
+    if (codigo == 1) {
+       cout<<"Procedência: Sul";
+    }  else if (codigo == 2) {
+       cout<<"Procedência: Norte";
+    }  else if (codigo == 3) {
+       cout<<"Procedência: Leste";
+    }  else if (codigo == 4) {
+       cout<<"Procedência: Oeste";
+    }  else if (codigo == 5 || codigo == 6) {
+       cout<<"Procedência: Nordeste";
+    }  else if (codigo == 7 || codigo == 8 || codigo == 9) {
+       cout<<"Procedência: Suldeste";
+    }  else if (codigo >= 10 && codigo <= 20) {
+       cout<<"Procedência: Centro-Oeste";
+    } else if (codigo >= 21 && codigo <= 30) {
+       cout<<"Procedência: Nordeste";
+    } else{
+        cout<<"Precedência não encontrada";
+    }
+
+
+    return 0;
+}
