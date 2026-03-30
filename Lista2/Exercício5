@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float saldomedio, credito;
+
+    cout << "Digite o saldo medio do cliente: ";
+    cin >> saldomedio;
+
+    if (saldomedio <= 200) {
+        credito = 0;
+    } 
+    else if (saldomedio <= 400) {
+        credito = saldomedio * 0.20;
+    } 
+    else if (saldomedio <= 600) {
+        credito = saldomedio * 0.30;
+    } 
+    else {
+        credito = saldomedio * 0.40;
+    }
+
+    cout << endl;
+    cout << "Saldo medio: " << saldomedio << endl;
+    cout << "Valor do credito: " << credito << endl;
+
+    return 0;
+}
