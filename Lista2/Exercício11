@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float salario, salarioMinimo;
+    int contador = 0;
+
+    cout << "Digite o valor do salario minimo: ";
+    cin >> salarioMinimo;
+
+    cout << "Digite o salario da pessoa 1: ";
+    cin >> salario;
+    if (salario > salarioMinimo) {
+        contador = contador + 1;
+    }
+
+    cout << "Digite o salario da pessoa 2: ";
+    cin >> salario;
+    if (salario > salarioMinimo) {
+        contador = contador + 1;
+    }
+
+    cout << "Digite o salario da pessoa 3: ";
+    cin >> salario;
+    if (salario > salarioMinimo) {
+        contador = contador + 1;
+    }
+
+    cout << "Digite o salario da pessoa 4: ";
+    cin >> salario;
+    if (salario > salarioMinimo) {
+        contador = contador + 1;
+    }
+
+    cout << "Digite o salario da pessoa 5: ";
+    cin >> salario;
+    if (salario > salarioMinimo) {
+        contador = contador + 1;
+    }
+
+    cout << endl;
+    cout << "Quantidade de pessoas que ganham mais que o salario minimo: " << contador;
+
+    return 0;
+}
