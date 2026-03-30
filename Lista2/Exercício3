@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float numero1, numero2, resultado;
+    int opcao;
+
+    cout << "Digite o primeiro número: ";
+    cin >> numero1;
+
+    cout << "Digite o segundo número: ";
+    cin >> numero2;
+
+    cout << endl;
+    cout << "Escolha uma opção:" << endl;
+    cout << "1 - Média entre os números" << endl;
+    cout << "2 - Diferenca do maior pelo menor" << endl;
+    cout << "3 - Produto entre os números" << endl;
+    cout << "4 - Divisão do primeiro pelo segundo" << endl;
+    cin >> opcao;
+
+    if (opcao == 1) {
+        resultado = (numero1 + numero2) / 2;
+        cout << "Média: " << resultado;
+    } 
+    else if (opcao == 2) {
+        if (numero1 > numero2) {
+            resultado = numero1 - numero2;
+        } else {
+            resultado = numero2 - numero1;
+        }
+        cout << "Diferença: " << resultado;
+    } 
+    else if (opcao == 3) {
+        resultado = numero1 * numero2;
+        cout << "Produto: " << resultado;
+    } 
+    else if (opcao == 4) {
+        if (numero2 == 0) {
+            cout << "Erro: divisão por zero!";
+        } else {
+            resultado = numero1 / numero2;
+            cout << "Divisão: " << resultado;
+        }
+    } 
+    else {
+        cout << "Opção invalida!";
+    }
+
+    return 0;
+}
