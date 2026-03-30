@@ -1,1 +1,15 @@
-
+#include <iostream>
+using namespace std;
+int main()
+{
+    int idade;
+    cout << "Digite sua idade ";
+    cin >> idade;
+    if(idade <= 17){
+    cout<< "Você é menor de idade";
+    } else {
+        cout<< "Você é maior de idade";
+    }
+    
+    return 0;
+}
