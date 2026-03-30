@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float salario;
+    cout<<"Digite seu salário: ";
+    cin>> salario;
+    
+    if(salario >= 5000.0){
+        cout<<"Você é bem remunerado";
+    } else if(salario <= 4999.0){
+        cout<<"Você é mal remunerado";
+    }
+
+    
+
+    return 0;
+}
