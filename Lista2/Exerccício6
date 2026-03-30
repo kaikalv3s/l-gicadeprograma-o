@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float senha;
+    const int senhav = 4531;
+
+    cout << "Digite a senha: ";
+    cin >> senha;
+
+    if (senha == senhav) {
+       cout<<"Acesso permitido";
+    }  else {
+        cout<<"Acesso negado";
+    }
+
+    return 0;
+}
