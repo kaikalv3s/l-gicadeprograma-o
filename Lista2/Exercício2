@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    float nota1, nota2, nota3, nota4, media;
+    cout<<"Digite sua primeira nota ";
+    cin>>nota1;
+    cout<<"Digite sua segunda nota ";
+    cin>>nota2;
+    cout<<"Digite sua terceira nota ";
+    cin>>nota3;
+    cout<<"Digite sua quarta nota ";
+    cin>>nota4;
+    
+    media = (nota1 + nota2 + nota3 + nota4) / 4;
+    
+    if(media<=6){
+        cout<<"Reprovado";
+    } else {
+        cout<<"Aprovado";
+    }
+    
+    return 0;
+}
