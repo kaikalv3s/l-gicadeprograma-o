@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    float codigo, salario, novosalario;
+    cout<<"Digite o código correspondente ao seu cargo: " <<endl;
+    cout<<"(1) Escriturário" <<endl;
+    cout<<"(2) Secretário" <<endl;
+    cout<<"(3) Caixa" <<endl;
+    cout<<"(4) Gerente" <<endl;
+    cout<<"(5) Diretor" <<endl;
+    cin>> codigo;
+    cout<< "Digite seu salário: ";
+    cin>> salario;
+    
+    if(codigo == 1){
+        novosalario = salario * (50.0 / 100.0) + salario;
+        cout<<"Seu cargo é Escrituário" <<endl;
+        cout<<"Você terá um aumento de 50%" <<endl;
+        cout<<"Seu novo salário será: R$" <<novosalario ;
+    } else if(codigo == 2){
+        novosalario = salario * (35.0 / 100.0) + salario;
+        cout<<"Seu cargo é Secretário" <<endl;
+        cout<<"Você terá um aumento de 35%" <<endl;
+        cout<<"Seu novo salário será: R$" <<novosalario ;
+    } else if(codigo == 3){
+        novosalario = salario * (20.0 / 100.0) + salario;
+        cout<<"Seu cargo é Caixa" <<endl;
+        cout<<"Você terá um aumento de 20%" <<endl;
+        cout<<"Seu novo salário será: R$" <<novosalario ;
+    } else if(codigo == 4){
+        novosalario = salario * (10.0 / 100.0) + salario;
+        cout<<"Seu cargo é Gerente" <<endl;
+        cout<<"Você terá um aumento de 10%" <<endl;
+        cout<<"Seu novo salário será: R$" <<novosalario ;
+    } else if (codigo == 5) {
+        cout<<"Seu cargo é Diretor" <<endl;
+        cout<<"Você não terá aumento";
+    }
+    
+
+    return 0;
+}
