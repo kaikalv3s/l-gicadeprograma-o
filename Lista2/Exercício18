@@ -4,13 +4,12 @@ using namespace std;
 int main() {
     int op, a, b, c, temp;
 
-    cout << "Digite a opcao (1-crescente / 2-decrescente): ";
+    cout << "Digite a opção (1-crescente / 2-decrescente): ";
     cin >> op;
 
-    cout << "Digite tres numeros: ";
+    cout << "Digite três números: ";
     cin >> a >> b >> c;
 
-    // ordenar (menor para maior)
     if (a > b) { temp = a; a = b; b = temp; }
     if (a > c) { temp = a; a = c; c = temp; }
     if (b > c) { temp = b; b = c; c = temp; }
