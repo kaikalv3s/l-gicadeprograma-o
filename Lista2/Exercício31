@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    int numero, lsb;
+
+    printf("Digite um numero: ");
+    scanf("%d", &numero);
+
+    lsb = numero & 1;
+
+    printf("Bit de menor ordem (LSB): %d\n", lsb);
+
+    return 0;
+}
