@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int angulo;
+
+    cout << "Digite o angulo: ";
+    cin >> angulo;
+
+    angulo = angulo % 360;
+
+    if (angulo < 0) {
+        angulo += 360;
+    }
+
+    if (angulo > 0 && angulo < 90) {
+        cout << "1º quadrante" << endl;
+    } else if (angulo > 90 && angulo < 180) {
+        cout << "2º quadrante" << endl;
+    } else if (angulo > 180 && angulo < 270) {
+        cout << "3º quadrante" << endl;
+    } else if (angulo > 270 && angulo < 360) {
+        cout << "4º quadrante" << endl;
+    } else {
+        cout << "O angulo esta sobre um eixo" << endl;
+    }
+
+    return 0;
+}
