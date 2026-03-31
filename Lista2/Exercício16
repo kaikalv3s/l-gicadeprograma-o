@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c, d, temp;
+
+    cout << "Digite tres numeros em ordem crescente: ";
+    cin >> a >> b >> c;
+
+    cout << "Digite o quarto numero: ";
+    cin >> d;
+
+    if (a > b) { temp = a; a = b; b = temp; }
+    if (a > c) { temp = a; a = c; c = temp; }
+    if (a > d) { temp = a; a = d; d = temp; }
+
+    if (b > c) { temp = b; b = c; c = temp; }
+    if (b > d) { temp = b; b = d; d = temp; }
+
+    if (c > d) { temp = c; c = d; d = temp; }
+
+    cout << "Ordem decrescente: ";
+    cout << d << " " << c << " " << b << " " << a;
+
+    return 0;
+}
