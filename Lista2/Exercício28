@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float T, X, Y, W;
+
+    cout << "Digite o valor de T: ";
+    cin >> T;
+
+    if (T > 2 && T <= 100) {
+        X = 2 * T - 4;
+        Y = T / 2 + 4;
+        W = 2 * T + 4 * Y - 3 * X;
+
+        cout << "Valor de W: " << W << endl;
+    } else {
+        cout << "Valor invalido!" << endl;
+    }
+
+    return 0;
+}
