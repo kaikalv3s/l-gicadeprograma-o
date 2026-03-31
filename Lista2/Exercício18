@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int op, a, b, c, temp;
+
+    cout << "Digite a opcao (1-crescente / 2-decrescente): ";
+    cin >> op;
+
+    cout << "Digite tres numeros: ";
+    cin >> a >> b >> c;
+
+    // ordenar (menor para maior)
+    if (a > b) { temp = a; a = b; b = temp; }
+    if (a > c) { temp = a; a = c; c = temp; }
+    if (b > c) { temp = b; b = c; c = temp; }
+
+    if (op == 1) {
+        cout << "Ordem crescente: ";
+        cout << a << " " << b << " " << c;
+    }
+    else if (op == 2) {
+        cout << "Ordem decrescente: ";
+        cout << c << " " << b << " " << a;
+    }
+    else {
+        cout << "Opcao invalida";
+    }
+
+    return 0;
+}
