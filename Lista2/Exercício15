@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float avaliacaot, avaliacaop, exercicios, media;
+    
+    cout<<"Digite a nota da seua avaliação teórica: ";
+    cin>> avaliacaot;
+    cout<<"Digite a nota de sua avaliação prática: ";
+    cin>>avaliacaop;
+    cout<<"Digite a nota dos seus exercícios: ";
+    cin>>exercicios;
+    
+    
+    media = (avaliacaot * 7 + avaliacaop * 2 + exercicios) / 10;
+    cout<<"Sua média ponderada é: " <<media <<endl;
+    
+    if(media < 50){
+        cout<<"Conceito: E";
+    } else if (media >= 50 && media <= 59 ){
+        cout<<"Conceito: D";
+    } else if (media >= 60 && media <= 69 ){
+        cout<<"Conceito: C";
+    } else if (media = 70 && media <= 84 ){
+        cout<<"Conceito: B";
+    } else (media >= 85 && media <= 100 ); {
+        cout<<"Conceito: A";
+    }
+
+    
+    
+    return 0;
+}
