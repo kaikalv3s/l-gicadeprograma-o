@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float salario_bruto, inss, salario_liquido;
+    float salario_minimo = 1320;
+
+    cout << "Digite o salario bruto: ";
+    cin >> salario_bruto;
+
+    if (salario_bruto <= 3 * salario_minimo) {
+        inss = salario_bruto * 0.08;
+    } else {
+        inss = salario_bruto * 0.10;
+    }
+
+    if (inss > salario_minimo) {
+        inss = salario_minimo;
+    }
+
+    salario_liquido = salario_bruto - inss;
+
+    cout << "Contribuicao INSS: " << inss << endl;
+    cout << "Salario liquido: " << salario_liquido << endl;
+
+    return 0;
+}
