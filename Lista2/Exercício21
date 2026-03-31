@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int numero, n;
+
+    printf("Digite um numero: ");
+    scanf("%d", &numero);
+
+    printf("Digite a posicao do bit a ser zerado (0 para o LSB): ");
+    scanf("%d", &n);
+
+    numero = numero & ~(1 << n);
+
+    printf("Numero apos limpar o bit %d: %d\n", n, numero);
+
+    return 0;
+}
