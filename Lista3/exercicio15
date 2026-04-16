@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+void ordena(float n1, float n2, float n3, char ordem) {
+    float menor, meio, maior;
+
+    if (n1 <= n2 && n1 <= n3) {
+        menor = n1;
+        if (n2 <= n3) { meio = n2; maior = n3; }
+        else { meio = n3; maior = n2; }
+    } else if (n2 <= n1 && n2 <= n3) {
+        menor = n2;
+        if (n1 <= n3) { meio = n1; maior = n3; }
+        else { meio = n3; maior = n1; }
+    } else {
+        menor = n3;
+        if (n1 <= n2) { meio = n1; maior = n2; }
+        else { meio = n2; maior = n1; }
+    }
+
+    if (ordem == 'C' || ordem == 'c') {
+        cout << "Ordem crescente: " << menor << " " << meio << " " << maior << endl;
+    } else if (ordem == 'D' || ordem == 'd') {
+        cout << "Ordem decrescente: " << maior << " " << meio << " " << menor << endl;
+    } else {
+        cout << "Caractere inválido! Use 'C' para crescente ou 'D' para decrescente." << endl;
+    }
+}
+
+int main() {
+    float a, b, c;
+    char ordem;
+
+    cout << "Digite três números reais: ";
+    cin >> a >> b >> c;
+
+    cout << "Digite 'C' para ordem crescente ou 'D' para ordem decrescente: ";
+    cin >> ordem;
+
+    ordena(a, b, c, ordem);
+
+    return 0;
+}
