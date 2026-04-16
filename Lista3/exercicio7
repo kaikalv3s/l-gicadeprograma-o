@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int verificaNumero(int n) {
+    int parte1 = n / 100;
+    int parte2 = n % 100;
+
+    int soma = parte1 + parte2;
+
+    if (soma * soma == n) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int main() {
+    int num;
+
+    cout << "Digite um numero de 4 digitos: ";
+    cin >> num;
+
+    cout << verificaNumero(num);
+
+    return 0;
+}
