@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+float pesoideal(float h, char sexo){
+    if (sexo == 'M'){
+    return  (72.7 * h)- 58;
+} else if (sexo == 'F'){
+    return (62.1 * h)- 44.7;
+} else 
+    return -1; }
+
+
+int main (){
+    float h, peso;
+    char sexo;
+    
+    cout<<"Digite sua altura: ";
+    cin>> h;
+    cout<<"Digite seu sexo (M/F): ";
+    cin>>sexo;
+    
+    peso = pesoideal( h, sexo);
+    
+    if (peso == -1) {
+        cout << "Sexo invalido" << endl;
+    } else {
+        cout << "Seu peso ideal e " << peso << endl;
+    }
+
+    return 0;
+}
