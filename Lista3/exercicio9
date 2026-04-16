@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+void separar_partes(float numero, int &parte_inteira, float &parte_decimal) {
+    parte_inteira = (int)numero;
+    parte_decimal = numero - parte_inteira;
+}
+
+int main() {
+    float valor;
+    int inteira;
+    float decimal;
+
+    cout << "Digite um número real: ";
+    cin >> valor;
+
+    separar_partes(valor, inteira, decimal);
+
+    cout << "Parte inteira: " << inteira << endl;
+    cout << "Parte decimal: " << decimal << endl;
+
+    return 0;
+}
