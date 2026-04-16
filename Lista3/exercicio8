@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int calcular_media(int n1, int n2, int n3, char letra) {
+    if (letra == 'A' || letra == 'a') {
+        return (n1 + n2 + n3) / 3;
+    } else if (letra == 'P' || letra == 'p') {
+        return (n1*5 + n2*3 + n3*2) / (5 + 3 + 2);
+    } else {
+        cout << "Letra inválida. Use 'A' ou 'P'." << endl;
+        return -1;
+    }
+}
+
+int main() {
+    int nota1, nota2, nota3;
+    char letra;
+
+    cout << "Digite as três notas (inteiras): ";
+    cin >> nota1 >> nota2 >> nota3;
+
+    cout << "Digite 'A' para média aritmética ou 'P' para média ponderada: ";
+    cin >> letra;
+
+    int media = calcular_media(nota1, nota2, nota3, letra);
+
+    if (media != -1) {
+        cout << "A média calculada é: " << media << endl;
+    }
+
+    return 0;
+}
