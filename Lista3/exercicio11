@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int maior(int a, int b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+int main() {
+    int num1, num2;
+
+    cout << "Digite dois números inteiros: ";
+    cin >> num1 >> num2;
+
+    int resultado = maior(num1, num2);
+
+    cout << "O maior número é: " << resultado << endl;
+
+    return 0;
+}
