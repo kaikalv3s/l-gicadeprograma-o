@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+const float salariominimo = 1621.0;
+
+bool validasalario(float salario) {
+    return salario > 0;
+}
+
+int contamaiores(float salario[], int tamanho){
+    int contador = 0;
+    for (int i = 0; i < tamanho; i++) {
+        if (salario[i] > salariominimo) {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+int main (){
+    float salario[5];
+
+    for (int i = 0; i < 5; i++){
+        cout << "Digite o salário da pessoa " << i + 1 << ": ";
+        cin >> salario[i];
+
+        if (!validasalario(salario[i])) {
+            cout << "Salario invalido!" << endl;
+            i--; // repete a posição
+        }
+    }
+
+    int resultado = contamaiores(salario, 5);
+
+    cout << "A quantidade de pessoas que ganham mais do que um salário mínimo é: "
+         << resultado << endl;
+
+    return 0;
+}
