@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int menu() {
+    int opcao;
+    cout << "Menu de opções:" << endl;
+    cout << "1 - Calcular o seno de um ângulo" << endl;
+    cout << "2 - Calcular o cosseno de um ângulo" << endl;
+    cout << "3 - Calcular a potência de um número por outro" << endl;
+    cout << "4 - Calcular a raiz quadrada de um número" << endl;
+    cout << "Digite a opção desejada: ";
+    cin >> opcao;
+    return opcao;
+}
+
+int main() {
+    int opcao = menu();
+
+    if (opcao == 1) {
+        double angulo;
+        cout << "Digite o ângulo em radianos: ";
+        cin >> angulo;
+        cout << "Seno: " << sin(angulo) << endl;
+    } else if (opcao == 2) {
+        double angulo;
+        cout << "Digite o ângulo em radianos: ";
+        cin >> angulo;
+        cout << "Cosseno: " << cos(angulo) << endl;
+    } else if (opcao == 3) {
+        double base, expoente;
+        cout << "Digite a base: ";
+        cin >> base;
+        cout << "Digite o expoente: ";
+        cin >> expoente;
+        cout << "Potência: " << pow(base, expoente) << endl;
+    } else if (opcao == 4) {
+        double numero;
+        cout << "Digite o número: ";
+        cin >> numero;
+        cout << "Raiz quadrada: " << sqrt(numero) << endl;
+    } else {
+        cout << "Opção inválida!" << endl;
+    }
+
+    return 0;
+}
