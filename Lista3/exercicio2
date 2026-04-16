@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+bool validaEntrada(float peso , float altura ){
+    if (peso > 0 && altura > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+float calculaIMC(float peso , float altura ){
+    float imc = peso / (altura * altura);
+    return imc;
+}
+
+void exibeClassificacaoIMC(float imc){
+    if (imc < 18.5){
+        cout << "Classificação: Abaixo do peso\n";
+    }
+    else if (imc < 25.0){
+        cout << "Classificação: Peso ideal\n";
+    }
+    else if (imc < 30.0){
+        cout << "Classificação: Sobrepeso\n";
+    }
+    else if (imc < 35.0){
+        cout << "Classificação: Obesidade grau I\n";
+    }
+    else if (imc < 40.0){
+        cout << "Classificação: Obesidade grau II (severa)\n";
+    }
+    else{
+        cout << "Classificação: Obesidade grau III (mórbida)\n";
+    }
+}
+
+void exibeTabelaIMC (){
+    cout<< "\tTabela de classificação IMC\n" <<endl;
+    cout<< "\tIMC\t\t\tClassificação\n";
+    cout<< "<18,5\t\t\t\tAbaixo do peso\n";
+    cout<< "18,5 a <25,0\t\tPeso ideal\n";
+    cout<< "25,0 a <30,0\t\tSobrepeso\n";
+    cout<< "30,0 a <35,0\t\tObesidade grau I\n";
+    cout<< "35,0 a <40,0\t\tObesidade grau II (severa)\n";
+    cout<< ">=40,0\t\t\t\tObesidade grau III (mórbida)\n" <<endl;
+}
+
+int main(){
+    float peso, altura;
+
+    exibeTabelaIMC();
+    
+    cout<<"Digite seu peso em Kg: ";
+    cin>>peso;
+
+    cout<<"Digite sua altura em metros: ";
+    cin>>altura;
+
+    if (!validaEntrada(peso, altura)) {
+        cout << "Valores inválidos!\n";
+        return 0;
+    }
+    
+    float imc = calculaIMC(peso, altura);
+    
+    cout << "Seu IMC é: " << imc << endl;
+
+    exibeClassificacaoIMC(imc);
+
+    return 0;
+}
