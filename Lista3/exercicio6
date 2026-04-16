@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+float calculaMedia(float t, float p, float e) {
+    return (7*t + 2*p + e) / 10;
+}
+
+char conceito(float media) {
+    if (media >= 85) return 'A';
+    else if (media >= 70) return 'B';
+    else if (media >= 60) return 'C';
+    else if (media >= 50) return 'D';
+    else return 'E';
+}
+
+int main() {
+    float t, p, e;
+
+    cin >> t >> p >> e;
+
+    float m = calculaMedia(t, p, e);
+
+    cout << "Media: " << m << endl;
+    cout << "Conceito: " << conceito(m) << endl;
+
+    return 0;
+}
