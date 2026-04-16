@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+bool estaNoIntervalo(int inicio, int fim, int valor) {
+    return (valor >= inicio && valor <= fim);
+}
+
+int main() {
+    int inicio, fim, valor;
+
+    cout << "Digite o início do intervalo: ";
+    cin >> inicio;
+
+    cout << "Digite o fim do intervalo: ";
+    cin >> fim;
+
+    cout << "Digite o valor a verificar: ";
+    cin >> valor;
+
+    if (estaNoIntervalo(inicio, fim, valor)) {
+        cout << "O valor está dentro do intervalo [" << inicio << ", " << fim << "]." << endl;
+    } else {
+        cout << "O valor NÃO está dentro do intervalo [" << inicio << ", " << fim << "]." << endl;
+    }
+
+    return 0;
+}
