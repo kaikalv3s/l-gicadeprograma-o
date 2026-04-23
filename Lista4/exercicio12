@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+string verifica(int n){
+    if (n % 2 == 0){
+        return "par";
+    } else {
+        return "impar";
+    }
+}
+
+int main(){
+    int n;
+
+    cout << "Digite um numero: ";
+    cin >> n;
+
+    cout << "O numero e " << verifica(n) << endl;
+
+    return 0;
+}
