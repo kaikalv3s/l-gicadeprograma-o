@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+void maior3(int a, int b, int c, int &maior){
+    maior = a;
+    if (b > maior) maior = b;
+    if (c > maior) maior = c;
+}
+
+int main(){
+    int a, b, c, maior;
+
+    cout << "Digite tres numeros: ";
+    cin >> a >> b >> c;
+
+    maior3(a, b, c, maior);
+
+    cout << "Maior: " << maior;
+
+    return 0;
+}
