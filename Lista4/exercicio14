@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+void divisao(float a, float b, float &resultado, bool &erro){
+    if (b == 0){
+        erro = true;
+    } else {
+        resultado = a / b;
+        erro = false;
+    }
+}
+
+int main(){
+    float a, b, resultado;
+    bool erro;
+
+    cout << "Digite dois números: ";
+    cin >> a >> b;
+
+    divisao(a, b, resultado, erro);
+
+    if (erro){
+        cout << "Erro: divisão por zero";
+    } else {
+        cout << "Resultado: " << resultado;
+    }
+
+    return 0;
+}
