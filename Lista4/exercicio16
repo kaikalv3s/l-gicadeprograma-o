@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+void categoria(int idade, string &res){
+    if (idade <= 12){
+        res = "Crianca";
+    } else if (idade <= 17){
+        res = "Adolescente";
+    } else if (idade <= 59){
+        res = "Adulto";
+    } else {
+        res = "Idoso";
+    }
+}
+
+int main(){
+    int idade;
+    string res;
+
+    cout << "Digite a idade: ";
+    cin >> idade;
+
+    categoria(idade, res);
+
+    cout << "Categoria: " << res;
+
+    return 0;
+}
