@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+void formaTriangulo(float a, float b, float c, bool &forma){
+    forma = (a + b > c && a + c > b && b + c > a);
+}
+
+int main(){
+    float a, b, c;
+    bool forma;
+
+    cout << "Digite tres lados: ";
+    cin >> a >> b >> c;
+
+    formaTriangulo(a, b, c, forma);
+
+    if (forma){
+        cout << "Forma triangulo";
+    } else {
+        cout << "Nao forma triangulo";
+    }
+
+    return 0;
+}
