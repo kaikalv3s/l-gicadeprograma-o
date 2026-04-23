@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void tipoTriangulo(float a, float b, float c, string &tipo){
+    if (a == b && b == c){
+        tipo = "Equilatero";
+    } else if (a == b || a == c || b == c){
+        tipo = "Isosceles";
+    } else {
+        tipo = "Escaleno";
+    }
+}
+
+int main(){
+    float a, b, c;
+    string tipo;
+
+    cout << "Digite tres lados: ";
+    cin >> a >> b >> c;
+
+    tipoTriangulo(a, b, c, tipo);
+
+    cout << "Tipo: " << tipo;
+
+    return 0;
+}
