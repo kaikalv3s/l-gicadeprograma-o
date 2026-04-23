@@ -12,6 +12,6 @@ int main() {
     int n;
     cout<<"Digite um número inteiro positivo: " ;
     cin >> n;
-    cout << numeros(n);
+    cout <<"A quantidade de digitos no seu número é " <<numeros(n);
     return 0;
 }
