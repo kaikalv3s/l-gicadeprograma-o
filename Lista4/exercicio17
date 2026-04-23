@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+void reajuste(float salario, float &novo){
+    if (salario <= 1000){
+        novo = salario * 1.20;
+    } else if (salario <= 2000){
+        novo = salario * 1.10;
+    } else {
+        novo = salario * 1.05;
+    }
+}
+
+int main(){
+    float salario, novo;
+
+    cout << "Digite o salario: ";
+    cin >> salario;
+
+    reajuste(salario, novo);
+
+    cout << "Novo salario: " << novo;
+
+    return 0;
+}
