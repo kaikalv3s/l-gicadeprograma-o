@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+void calcula(float n1, float n2, float &media, string &situacao){
+    media = (n1 + n2) / 2;
+
+    if (media >= 6.0){
+        situacao = "Aprovado";
+    } else {
+        situacao = "Reprovado";
+    }
+}
+
+int main(){
+    float n1, n2, media;
+    string situacao;
+
+    cout << "Digite as duas notas: ";
+    cin >> n1 >> n2;
+
+    calcula(n1, n2, media, situacao);
+
+    cout << "Média: " << media << endl;
+    cout << "Situação: " << situacao << endl;
+
+    return 0;
+}
