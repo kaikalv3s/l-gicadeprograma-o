@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int numeros (int n){
+    if(n == 0){
+        return 0;
+    }
+    return 1 + numeros(n / 10);
+}
+
+int main() {
+    int n;
+    cout<<"Digite um número inteiro positivo: " ;
+    cin >> n;
+    cout << numeros(n);
+    return 0;
+}
