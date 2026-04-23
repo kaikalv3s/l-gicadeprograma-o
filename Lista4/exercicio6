@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int contarDigitos(int n){
+    if(n == 0) return 0;
+    return 1 + contarDigitos(n / 10);
+}
+
+int potencia(int base, int exp){
+    if(exp == 0) return 1;
+    return base * potencia(base, exp - 1);
+}
+
+int inverter(int n, int digitos){
+    if(n == 0) return 0;
+
+    int ultimo = n % 10;
+    return ultimo * potencia(10, digitos - 1) + inverter(n / 10, digitos - 1);
+}
+
+int main() {
+    int n;
+    cout<<"Digite um número ";
+    cin >> n;
+    
+    int digitos = contarDigitos(n);
+    cout <<"Esse número invertido é " <<inverter(n, digitos);
+
+    return 0;
+}
