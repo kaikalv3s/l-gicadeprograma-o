@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int inverter(int n, int resultado){
+    if(n == 0){
+        return resultado;
+    }
+    return inverter(n / 10, resultado * 10 + (n % 10));
+}
+
+bool ehPalindromo(int n){
+    return n == inverter(n, 0);
+}
+
+int main(){
+    int n;
+    cin >> n;
+
+    if(ehPalindromo(n)){
+        cout << "true";
+    } else {
+        cout << "false";
+    }
+
+    return 0;
+}
