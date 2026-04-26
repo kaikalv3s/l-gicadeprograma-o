@@ -1,0 +1,83 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int funcionarios, departamento;
+    char sexo, sexoMenor;
+
+    float salario;
+    float maior, menor;
+    float somaMulheres = 0, mediaMulheres = 0;
+    int qtdMulheres = 0;
+
+    float somaDep34 = 0, mediaDep34 = 0;
+    int qtdDep34 = 0;
+
+    cout << "Digite o numero de funcionarios: ";
+    cin >> funcionarios;
+
+    for (int i = 1; i <= funcionarios; i++)
+    {
+        cout << "\nFuncionario " << i << endl;
+
+        cout << "Departamento (1-4): ";
+        cin >> departamento;
+
+        cout << "Salario: R$ ";
+        cin >> salario;
+
+        cout << "Sexo (M/F): ";
+        cin >> sexo;
+
+        if (i == 1)
+        {
+            maior = salario;
+            menor = salario;
+            sexoMenor = sexo;
+        }
+        else
+        {
+            if (salario > maior)
+                maior = salario;
+
+            if (salario < menor)
+            {
+                menor = salario;
+                sexoMenor = sexo;
+            }
+        }
+
+        if (sexo == 'F' || sexo == 'f')
+        {
+            somaMulheres += salario;
+            qtdMulheres++;
+        }
+
+        if (departamento == 3 || departamento == 4)
+        {
+            somaDep34 += salario;
+            qtdDep34++;
+        }
+    }
+
+    if (qtdMulheres > 0)
+        mediaMulheres = somaMulheres / qtdMulheres;
+
+    if (qtdDep34 > 0)
+        mediaDep34 = somaDep34 / qtdDep34;
+
+    cout << "\n===== RESULTADOS =====" << endl;
+
+    cout << "Maior salario: R$ " << maior << endl;
+
+    cout << "Menor salario: R$ " << menor << endl;
+
+    cout << "Sexo do menor salario: " << sexoMenor << endl;
+
+    cout << "Media salario das mulheres: R$ " << mediaMulheres << endl;
+
+    cout << "Media salarios depto 3 e 4: R$ " << mediaDep34 << endl;
+
+    return 0;
+}
