@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int idade, cont = 0;
+
+    for (int i = 1; i <= 10; i++)
+    {
+        cout << "Digite a idade da pessoa " << i << ": ";
+        cin >> idade;
+
+        if (idade < 18)
+            cont++;
+    }
+
+    cout << "Quantidade de menores de 18: " << cont;
+}
