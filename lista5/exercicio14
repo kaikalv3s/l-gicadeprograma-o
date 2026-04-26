@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+void calcularDados()
+{
+    float salario, mediaSalario = 0, maiorSalario = 0;
+    int filhos, totalPessoas = 0, totalFilhos = 0;
+    int menor650 = 0;
+
+    char continuar = 's';
+
+    while (continuar == 's' || continuar == 'S')
+    {
+        cout << "Digite o salario: ";
+        cin >> salario;
+
+        cout << "Digite o numero de filhos: ";
+        cin >> filhos;
+
+        mediaSalario += salario;
+        totalFilhos += filhos;
+        totalPessoas++;
+
+        if (salario > maiorSalario)
+        {
+            maiorSalario = salario;
+        }
+
+        if (salario < 650)
+        {
+            menor650++;
+        }
+
+        cout << "Deseja continuar? (s/n): ";
+        cin >> continuar;
+
+        cout << endl;
+    }
+
+    if (totalPessoas > 0)
+    {
+        cout << "\nRESULTADOS:\n";
+        cout << "Media salarial: " << mediaSalario / totalPessoas << endl;
+        cout << "Media de filhos: " << (float)totalFilhos / totalPessoas << endl;
+        cout << "Maior salario: " << maiorSalario << endl;
+        cout << "Percentual com salario menor que 650: " 
+             << (menor650 * 100.0 / totalPessoas) << "%" << endl;
+    }
+    else
+    {
+        cout << "Nenhum dado foi inserido." << endl;
+    }
+}
+
+int main()
+{
+    calcularDados();
+    return 0;
+}
