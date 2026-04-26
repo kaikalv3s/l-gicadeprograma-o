@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int mediaaritmetica()
+{
+    int numero;
+    int soma = 0;
+    int contador = 0;
+    char quantidade = 's';
+
+    while (quantidade == 's')
+    {
+        cout << "Digite um número: ";
+        cin >> numero;
+
+        soma += numero;
+        contador++;
+
+        cout << "Deseja adicionar mais números? (s/n): ";
+        cin >> quantidade;
+    }
+
+    if (contador == 0)
+        return 0;
+
+    return soma / contador;
+}
+
+int main()
+{
+    int media = mediaaritmetica();
+    cout << "Média: " << media << endl;
+
+    return 0;
+}
