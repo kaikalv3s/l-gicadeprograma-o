@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int idade, menor18 = 0;
+    float peso, altura;
+
+    float somaAltura = 0;
+    int totalJogadores = 5 * 11;
+
+    int mais80 = 0;
+
+    for (int time = 1; time <= 5; time++)
+    {
+        int somaIdadeTime = 0;
+
+        cout << "\nTime " << time << endl;
+
+        for (int jogador = 1; jogador <= 11; jogador++)
+        {
+            cout << "\nJogador " << jogador << endl;
+
+            cout << "Idade: ";
+            cin >> idade;
+
+            cout << "Peso: ";
+            cin >> peso;
+
+            cout << "Altura: ";
+            cin >> altura;
+
+            if (idade < 18)
+                menor18++;
+
+            somaIdadeTime += idade;
+
+            somaAltura += altura;
+
+            if (peso > 80)
+                mais80++;
+        }
+
+        cout << "\nMédia de idade do time " << time << ": "
+             << (somaIdadeTime / 11.0) << endl;
+    }
+
+    cout << "\n==============================" << endl;
+
+    cout << "a) Jogadores com menos de 18 anos: " << menor18 << endl;
+
+    cout << "c) Média de altura geral: "
+         << (somaAltura / totalJogadores) << endl;
+
+    cout << "d) Percentual com mais de 80kg: "
+         << (mais80 * 100.0 / totalJogadores) << "%" << endl;
+
+    return 0;
+}
