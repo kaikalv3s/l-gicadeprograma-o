@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+bool formaTriangulo(float a, float b, float c)
+{
+    if (a <= 0 || b <= 0 || c <= 0)
+        return false;
+
+    if (a + b >= c && a + c >= b && b + c >= a)
+        return true;
+
+    return false;
+}
+
+void tipoTriangulo(float a, float b, float c)
+{
+    if (a == b && b == c)
+    {
+        cout << "Triangulo equilatero" << endl;
+    }
+    else if (a == b || a == c || b == c)
+    {
+        cout << "Triangulo isosceles" << endl;
+    }
+    else
+    {
+        cout << "Triangulo escaleno" << endl;
+    }
+}
+
+int main()
+{
+    float a, b, c;
+    char opcao = 's';
+
+    while (opcao == 's' || opcao == 'S')
+    {
+        cout << "Digite os tres lados do triangulo: ";
+        cin >> a >> b >> c;
+
+        if (formaTriangulo(a, b, c))
+        {
+            cout << "Forma um triangulo." << endl;
+            tipoTriangulo(a, b, c);
+        }
+        else
+        {
+            cout << "Nao forma um triangulo." << endl;
+        }
+
+        cout << "Deseja continuar? (s/n): ";
+        cin >> opcao;
+
+        cout << endl;
+    }
+
+    return 0;
+}
