@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i = 1;
+    int idade, habitantes;
+
+    int menor10000 = 0;
+    int somaIdade = 0;
+    int maisNova = 9999;
+    int mais300eMenor10000 = 0;
+
+    while (i <= 10)
+    {
+        cout << "Cidade " << i << endl;
+
+        cout << "Digite a idade da cidade: ";
+        cin >> idade;
+
+        cout << "Digite o numero de habitantes: ";
+        cin >> habitantes;
+
+        somaIdade += idade;
+
+        if (idade < maisNova)
+        {
+            maisNova = idade;
+        }
+
+        if (habitantes < 10000)
+        {
+            menor10000++;
+        }
+
+        if (idade > 300 && habitantes < 10000)
+        {
+            mais300eMenor10000++;
+        }
+
+        i++;
+    }
+
+    float mediaIdade = somaIdade / 10.0;
+
+    cout << "\nRESULTADOS:\n";
+    cout << "a) Cidades com menos de 10000 habitantes: " << menor10000 << endl;
+    cout << "b) Media de idade das cidades: " << mediaIdade << endl;
+    cout << "c) Idade da cidade mais nova: " << maisNova << endl;
+    cout << "d) Cidades com mais de 300 anos e menos de 10000 habitantes: " 
+         << mais300eMenor10000 << endl;
+
+    return 0;
+}
