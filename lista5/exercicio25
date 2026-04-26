@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+
+int quant_produtos();
+float valor_produto();
+
+int main()
+{
+    int n, i;
+    int quantidade ;
+    float valor;
+    float montante = 0;
+
+cout<<"Quantos produtos deseja cadastrar: ";
+cin>>n;
+        while(n <= 0)
+    {
+        cout << "Erro! Digite um valor maior que zero: ";
+        cin >> n;
+    }
+
+for ( i = 1; i <= n; i++)
+    {
+        cout <<"\n\t\t ---- Produto" <<i << "----" << endl;
+        
+        quantidade = quant_produtos();
+        valor = valor_produto();
+        
+        montante = montante + (quantidade * valor);
+    }
+
+    cout <<"\nMontante total: " << montante << endl;
+
+    return 0;
+}
+
+
+int quant_produtos()
+{
+    int produto;
+    do
+    {
+        cout<< "Digite a quantidade desse produto ";
+        cin>> produto;
+    if( produto <= 0 )
+    {
+         cout<<"Erro! Valor menor do que zero" <<endl;
+    }
+} while(produto < 0);
+return produto;
+}
+
+float valor_produto()
+{
+    float valor;
+    do
+    {
+        cout<<"Digite o valor do produto ";
+        cin>>valor;
+    if( valor < 1)
+    {
+        cout<<"Erro! Valor invalido" <<endl;
+    }
+    } while (valor < 1);
+    return valor;
+}
