@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+bool Primo(int n)
+{
+    if (n <= 1)
+        return false;
+
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+            return false;
+    }
+
+    return true;
+}
+
+int main()
+{
+    int numero;
+    int contadorPrimos = 0;
+
+    for (int i = 1; i <= 10; i++)
+    {
+        cout << "Digite o " << i << "º número: ";
+        cin >> numero;
+
+        if (Primo(numero))
+        {
+            contadorPrimos++;
+        }
+    }
+
+    cout << "Quantidade de números primos: " << contadorPrimos << endl;
+
+    return 0;
+}
