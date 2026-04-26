@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int idade;
+    char sexo;
+
+    int totalPessoas = 0, totalHomens = 0, totalMulheres = 0;
+    int somaIdades = 0, somaIdadesHomens = 0, somaIdadesMulheres = 0;
+
+    while (true) {
+        cout << "Digite a idade: ";
+        cin >> idade;
+
+        if (idade <= 0) {
+            cout << "Idade inválida. Encerrando..." << endl;
+            break;
+        }
+
+        cout << "Digite o sexo (m/f): ";
+        cin >> sexo;
+
+        if (sexo != 'm' && sexo != 'f') {
+            cout << "Sexo inválido. Encerrando..." << endl;
+            break;
+        }
+
+        totalPessoas++;
+        somaIdades += idade;
+
+        if (sexo == 'm') {
+            totalHomens++;
+            somaIdadesHomens += idade;
+        }
+
+        if (sexo == 'f') {
+            totalMulheres++;
+            somaIdadesMulheres += idade;
+        }
+    }
+
+    if (totalPessoas > 0)
+        cout << "a) Média de idades (todos): " << (double)somaIdades / totalPessoas << endl;
+    else
+        cout << "a) Nenhum dado válido inserido." << endl;
+
+    if (totalMulheres > 0)
+        cout << "b) Média de idades (mulheres): " << (double)somaIdadesMulheres / totalMulheres << endl;
+    else
+        cout << "b) Nenhuma mulher cadastrada." << endl;
+
+    if (totalHomens > 0)
+        cout << "c) Média de idades (homens): " << (double)somaIdadesHomens / totalHomens << endl;
+    else
+        cout << "c) Nenhum homem cadastrado." << endl;
+
+    return 0;
+}
