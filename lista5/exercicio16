@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, b;
+
+    for (int i = 1; i <= 5; i++)
+    {
+        cout << "Par " << i << endl;
+
+        cout << "Digite o valor de a (inteiro positivo): ";
+        cin >> a;
+
+        cout << "Digite o valor de b (inteiro positivo): ";
+        cin >> b;
+
+        if (a > b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+
+        cout << "Numeros pares entre " << a << " e " << b << ": ";
+
+        for (int j = a; j <= b; j++)
+        {
+            if (j % 2 == 0)
+            {
+                cout << j << " ";
+            }
+        }
+
+        cout << endl << endl;
+    }
+
+    return 0;
+}
