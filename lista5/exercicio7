@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int valor;
+    int maior = 0, menor = 0;
+    bool primeiro = true;
+
+    while (true)
+    {
+        cout << "Digite um valor inteiro positivo (0 para encerrar): ";
+        cin >> valor;
+
+        if (valor == 0)
+            break;
+
+        if (valor < 0)
+        {
+            cout << "Valor negativo não e permitido!" << endl;
+            continue;
+        }
+
+        if (primeiro)
+        {
+            maior = menor = valor;
+            primeiro = false;
+        }
+        else
+        {
+            if (valor > maior)
+                maior = valor;
+
+            if (valor < menor)
+                menor = valor;
+        }
+    }
+
+    if (primeiro)
+    {
+        cout << "Nenhum valor valido foi digitado." << endl;
+    }
+    else
+    {
+        cout << "Maior valor: " << maior << endl;
+        cout << "Menor valor: " << menor << endl;
+    }
+
+    return 0;
+}
