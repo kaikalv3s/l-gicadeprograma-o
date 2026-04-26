@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+long long fatorial(int n)
+{
+    long long fat = 1;
+    for(int i = 1; i <= n; i++)
+    {
+        fat *= i;
+    }
+    return fat;
+}
+
+int main()
+{
+    int N, valor;
+
+    cout << "Digite quantos valores serao lidos: ";
+    cin >> N;
+
+    for(int i = 1; i <= N; i++)
+    {
+        cout << "\nDigite o " << i << " valor inteiro positivo: ";
+        cin >> valor;
+
+        while(valor < 0)
+        {
+            cout << "Valor invalido! Digite um numero positivo: ";
+            cin >> valor;
+        }
+
+        cout << "\nValor\tFatorial\n";
+        cout << " " <<valor << "\t\t\t" << fatorial(valor) << endl;
+    }
+
+    return 0;
+}
