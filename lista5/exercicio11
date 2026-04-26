@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int opcao;
+    float media, n1, n2, n3, p1, p2, p3;
+    
+    cout << "\t\tMenu de opções" <<endl;
+    cout << "1-Média aritmética" <<endl;
+    cout << "2-Média ponderada" <<endl;
+    cout << "3-Sair" <<endl;
+    cout << "Digite a opção desejada" <<endl;
+    cin>> opcao;
+    
+    if (opcao == 1)
+    {
+        cout << "Digite a primeira nota: ";
+        cin >> n1;
+        cout << "Digite a segunda nota: ";
+        cin >> n2;
+        
+        media = (n1 + n2) / 2; 
+        
+        cout<< "A média aritimética é " <<media;
+    }
+    else if(opcao == 2)
+    {
+        cout << "Digite a primeira nota: ";
+        cin >> n1;
+        cout << "Digite o peso da primeira nota: ";
+        cin >> p1;
+        cout << "Digite a segunda nota: ";
+        cin >> n2;
+        cout << "Digite o peso da segunda nota: ";
+        cin >> p2;
+        cout << "Digite a terceira nota: ";
+        cin >> n3;
+        cout << "Digite o peso da terceira nota: ";
+        cin >> p3;
+        
+        media = (n1 * p1 + n2 * p2 + n3 * p3) / (p1 + p2 + p3);
+        
+        cout<< "A média ponderada é " <<media;
+    } else if( opcao == 3)
+    {
+        cout << "Saindo do programa..." << endl;
+        return 0;
+    }else
+    {
+        cout<<"Erro! opção invalida";
+    }
+    return 0;
+}
