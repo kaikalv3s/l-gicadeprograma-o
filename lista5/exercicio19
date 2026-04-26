@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    float nota, soma, total;
+    
+    for (int aluno = 1; aluno <= 10; aluno++)
+    {
+        soma = 0;
+        
+        cout << "\nAluno " << aluno << endl;
+    
+        for (int i = 1; i <= 4; i++)
+        {
+            cout << "Digite a " << i << "° nota: ";
+            cin >> nota;
+            
+            soma = soma + nota;
+        }
+    
+        total = soma;
+        cout << "Nota do semestre: " << total << endl;
+        
+        if (total <= 69)
+    {
+        cout<<"Situação: reprovado\n";
+    }
+    
+    else
+    {
+        cout<<"Situação: aprovado\n";
+    }
+    }
+    
+    
+    
+    return 0;
+}
