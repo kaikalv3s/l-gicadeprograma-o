@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+    
+    float a1, r, q;
+    float pa, pg;
+    string opcao;
+    
+    cout <<"Escolha uma opção (1/2): \n";
+    cout<< "1) PA\n";
+    cout<< "2) PG\n";
+    cin>>opcao;
+    
+
+    if (opcao == "1")
+    {
+        cout<<"Digite o primeiro termo da sua progressão aritmética: ";
+        cin>> a1;
+
+        cout<< "Digite a razão da sua progressão aritmética: ";
+        cin>> r;
+
+        for (int i = 0; i < 15; i++)
+        {
+            pa = a1 + i * r;
+            cout << pa << " ";
+        }
+    }
+
+    else if (opcao == "2")
+    {
+        cout<<"Digite o primeiro termo da sua progressão geométrica: ";
+        cin>> a1;
+
+        cout<< "Digite a razão da sua progressão geométrica: ";
+        cin>> q;
+
+        for (int i = 0; i < 15; i++)
+        {
+            pg = a1 * pow(q, i);
+            cout << pg << " ";
+        }
+    }
+
+    return 0;
+}
