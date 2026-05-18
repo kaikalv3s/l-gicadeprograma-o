@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+int main() {
+    string palavra;
+    int i, n = 0;
+  cout << "Digite qualquer coisa: ";
+  getline(cin, palavra);
+  for (int i = 0; i < palavra.length(); i++){
+    if(palavra[i] == 'a'){
+        palavra[i] = 'b';
+        n++;
+    }
+  }
+    cout<< n <<endl <<palavra;
+    
+    return 0;
+}
