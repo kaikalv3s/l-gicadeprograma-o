@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+int main() {
+    string cidade1, cidade2;
+    int i, n = 0;
+  cout << "Digite onde nasceu: ";
+  getline(cin, cidade1);
+   cout << "Digite onde mora: ";
+  getline(cin, cidade2);
+  if(cidade1 == cidade2){
+      cout<< "correspondentes"<<endl;
+  }
+  for (int i = 0; i < cidade2.length(); i++){
+    if(cidade2[i] == 'a'||cidade2[i] == 'e'||cidade2[i] == 'i'||cidade2[i] == 'o'||cidade2[i] == 'u'){
+        cidade2[i] = '?';
+        n++;
+    }
+  }
+    cout<< n <<endl <<cidade2;
+    
+    return 0;
+}
