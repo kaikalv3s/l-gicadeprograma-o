@@ -2,19 +2,23 @@
 #include <string>
 using namespace std;
 
-
-int main() {
+int main(){
+    
     string palavra;
-    int i, n = 0;
-  cout << "Digite qualquer coisa: ";
-  getline(cin, palavra);
-  for (int i = 0; i < palavra.length(); i++){
-    if(palavra[i] == 'a'){
-        palavra[i] = 'b';
-        n++;
+    int contador = 0;
+    cout<<"Digite qualquer coisa ";
+    getline (cin, palavra);
+    
+    for (int i = 0; i < palavra.length(); i++){
+        if (palavra[i] == 'a'){
+            palavra[i] = 'b';
+            contador++;
+        }
+        
     }
-  }
-    cout<< n <<endl <<palavra;
+    
+    cout<<contador <<endl;
+    cout<<palavra;
     
     return 0;
-}
+} 
