@@ -2,24 +2,39 @@
 #include <string>
 using namespace std;
 
-
-int main() {
+int main()
+{
     string cidade1, cidade2;
-    int i, n = 0;
-  cout << "Digite onde nasceu: ";
-  getline(cin, cidade1);
-   cout << "Digite onde mora: ";
-  getline(cin, cidade2);
-  if(cidade1 == cidade2){
-      cout<< "correspondentes"<<endl;
-  }
-  for (int i = 0; i < cidade2.length(); i++){
-    if(cidade2[i] == 'a'||cidade2[i] == 'e'||cidade2[i] == 'i'||cidade2[i] == 'o'||cidade2[i] == 'u'){
-        cidade2[i] = '?';
-        n++;
-    }
-  }
-    cout<< n <<endl <<cidade2;
+    int vogais = 0;
+
+    cout<<"Digite a cidade em que voce nasceu: ";
+    getline(cin, cidade1);
+    cout<<"Digite a cidade em que você reside: ";
+    getline(cin, cidade2);
     
-    return 0;
+    if(cidade1 == cidade2)
+    {
+        cout<<"Voce mora na mesma cidade em que nasceu." <<endl;
+    } else cout<<"Voce mora em uma cidade diferente da qual voce nasceu."<<endl;
+    
+    for(int i = 0; i < cidade2.length(); i++)
+    {
+        if(  cidade2[i] == 'a' ||  cidade2[i] == 'e' ||  cidade2[i] == 'i' ||  cidade2[i] == 'o' ||  cidade2[i] == 'u')
+        vogais++;
+        
+    }
+    
+    cout<<"A quantidade de vogais da cidade em que voce reside e: " <<vogais <<endl;
+    
+    for(int i = 0; i < cidade2.length(); i++)
+    {
+        if( cidade2[i] == 'a' ||  cidade2[i] == 'e' ||  cidade2[i] == 'i' ||  cidade2[i] == 'o' ||  cidade2[i] == 'u'){
+            cidade2[i] = '?';
+        }
+    }
+    
+    cout<<"O nome da cidade em que voce reside alterado e: " <<cidade2 <<endl;
+    
+    
+    return 0;   
 }
