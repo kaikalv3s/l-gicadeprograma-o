@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string trocarExtensao(string arquivo)
+{
+    int pos = arquivo.find('.');
+
+    arquivo.replace(pos + 1, 3, "bmp");
+
+    return arquivo;
+}
+
+int main()
+{
+    string arquivo;
+    
+    cout<<"Digite o nome do seu arquivo com '.gif' no final: ";
+    cin>> arquivo;
+    
+    cout << "Novo arquivo: " << trocarExtensao(arquivo);
+    
+    return 0;
+}
