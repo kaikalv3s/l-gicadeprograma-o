@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int vogais = 0;
+    string palavra;
+    string invertida = "";
+    
+    cout << "Digite uma frase: ";
+    getline(cin, palavra);
+    
+    for (int i = palavra.length() - 1; i >= 0; i--)
+    {
+        invertida += palavra[i];
+    }
+    
+    
+    for(int i = 0; i < palavra.length(); i++)
+    {
+        if(invertida[i] == 'a' || invertida[i] == 'A' || invertida[i] == 'e' || invertida[i] == 'E' || invertida[i] == 'i' || invertida[i] == 'I' || invertida[i] == 'o' || invertida[i] == 'O' || invertida[i]== 'U' || invertida[i] == 'u')
+        vogais++;
+        
+    }
+
+    
+    for(int i = 0; i < palavra.length(); i++)
+    {
+       if(invertida[i] == 'a' || invertida[i] == 'A' || invertida[i] == 'e' || invertida[i] == 'E' || invertida[i] == 'i' || invertida[i] == 'I' || invertida[i] == 'o' || invertida[i] == 'O' || invertida[i]== 'U' || invertida[i] == 'u'){
+            invertida[i] = '?';
+        }
+    }
+    
+    cout<<"A quantidade de vogais na frase é " <<vogais <<endl;
+    cout<<"A frase alterada e:" <<invertida;
+
+    return 0;
+}
