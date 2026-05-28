@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string vet[20];
+    string novo[20];
+
+    int n, maior = 0, cont = 0;
+
+    cout << "Quantas cadeias deseja inserir (maximo 20)? ";
+    cin >> n;
+
+    cin.ignore();
+
+    for (int i = 0; i < n; i++) {
+        cout << "Digite a cadeia " << i + 1 << ": ";
+        getline(cin, vet[i]);
+
+        if (vet[i].length() > maior) {
+            maior = vet[i].length();
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        int tam = vet[i].length();
+
+        if (tam >= maior / 2 && tam <= maior) {
+            novo[cont] = vet[i];
+            cont++;
+        }
+    }
+
+    cout << "\nMaior comprimento: " << maior << endl;
+
+    cout << "\nCadeias copiadas:\n";
+    for (int i = 0; i < cont; i++) {
+        cout << novo[i] << endl;
+    }
+
+    return 0;
+}
