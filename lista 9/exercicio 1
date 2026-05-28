@@ -1,22 +1,55 @@
 #include <iostream>
 using namespace std;
 
-struct Pessoa {
+struct Acao {
     string nome;
-    int idade;
-    float altura;
+    string area;
+    double valorAtual;
+    double valorAnterior;
+    double variacao;
 };
 
 int main() {
-    Pessoa p1;
 
-    p1.nome = "Carlos";
-    p1.idade = 20;
-    p1.altura = 1.75;
+    Acao empresas[3];
 
-    cout << p1.nome << endl;
-    cout << p1.idade << endl;
-    cout << p1.altura << endl;
+    for (int i = 0; i < 3; i++) {
+
+        cout << "Companhia " << i + 1 << endl;
+
+        cout << "Nome: ";
+        cin >> empresas[i].nome;
+
+        cout << "Area: ";
+        cin >> empresas[i].area;
+
+        cout << "Valor atual: ";
+        cin >> empresas[i].valorAtual;
+
+        cout << "Valor anterior: ";
+        cin >> empresas[i].valorAnterior;
+
+        empresas[i].variacao =
+        ((empresas[i].valorAtual - empresas[i].valorAnterior)
+        / empresas[i].valorAnterior) * 100;
+
+        cout << endl;
+    }
+
+    cout << "===== DADOS =====" << endl;
+
+    for (int i = 0; i < 3; i++) {
+
+        cout << "Companhia " << i + 1 << endl;
+
+        cout << "Nome: " << empresas[i].nome << endl;
+        cout << "Area: " << empresas[i].area << endl;
+        cout << "Valor atual: " << empresas[i].valorAtual << endl;
+        cout << "Valor anterior: " << empresas[i].valorAnterior << endl;
+        cout << "Variacao (%): " << empresas[i].variacao << "%" << endl;
+
+        cout << endl;
+    }
 
     return 0;
 }
