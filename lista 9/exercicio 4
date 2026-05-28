@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+struct Pessoa {
+    string nome;
+    int idade;
+    string endereco;
+};
+
+int main() {
+
+    Pessoa p1;
+
+    cout << "Nome: ";
+    getline(cin, p1.nome);
+
+    cout << "Idade: ";
+    cin >> p1.idade;
+
+    cin.ignore();
+
+    cout << "Endereco: ";
+    getline(cin, p1.endereco);
+
+    cout << endl;
+
+    cout << p1.nome << endl;
+    cout << p1.idade << endl;
+    cout << p1.endereco << endl;
+
+    return 0;
+}
