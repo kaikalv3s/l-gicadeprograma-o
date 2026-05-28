@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+struct Acao {
+    string nome;
+    string area;
+    double valorAtual;
+    double valorAnterior;
+    double variacao;
+};
+
+int main() {
+
+    Acao empresas[3];
+
+    double soma = 0;
+    double media;
+    double somaDesvio = 0;
+    double desvioPadrao;
+
+    for (int i = 0; i < 3; i++) {
+
+        cout << "Companhia " << i + 1 << endl;
+
+        cout << "Nome: ";
+        cin >> empresas[i].nome;
+
+        cout << "Area: ";
+        cin >> empresas[i].area;
+
+        cout << "Valor atual: ";
+        cin >> empresas[i].valorAtual;
+
+        cout << "Valor anterior: ";
+        cin >> empresas[i].valorAnterior;
+
+        empresas[i].variacao =
+        ((empresas[i].valorAtual - empresas[i].valorAnterior)
+        / empresas[i].valorAnterior) * 100;
+
+        soma += empresas[i].valorAtual;
+
+        cout << endl;
+    }
+
+    media = soma / 3;
+
+    for (int i = 0; i < 3; i++) {
+
+        somaDesvio += pow(empresas[i].valorAtual - media, 2);
+    }
+
+    desvioPadrao = sqrt(somaDesvio / 3);
+
+    cout << "Media dos valores: " << media << endl;
+    cout << "Desvio padrao: " << desvioPadrao << endl;
+
+    return 0;
+}
