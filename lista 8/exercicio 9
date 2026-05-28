@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void gera_arquivo(string base, int digitos, int quantidade, string extensao) {
+    for (int i = 1; i <= quantidade; i++) {
+
+        cout << base;
+
+        int num = i;
+        int qtdDigitos = 0;
+
+        while (num > 0) {
+            qtdDigitos++;
+            num /= 10;
+        }
+
+        for (int j = qtdDigitos; j < digitos; j++) {
+            cout << "0";
+        }
+
+        cout << i << "." << extensao;
+
+        if (i < quantidade) {
+            cout << ", ";
+        }
+    }
+}
+
+int main() {
+    gera_arquivo("dado", 3, 5, "dat");
+
+    return 0;
+}
