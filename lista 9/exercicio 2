@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+struct Acao {
+    string nome;
+    string area;
+    double valorAtual;
+    double valorAnterior;
+    double variacao;
+};
+
+int main() {
+
+    Acao empresas[3];
+    double valor;
+
+    for (int i = 0; i < 3; i++) {
+
+        cout << "Companhia " << i + 1 << endl;
+
+        cout << "Nome: ";
+        cin >> empresas[i].nome;
+
+        cout << "Area: ";
+        cin >> empresas[i].area;
+
+        cout << "Valor atual: ";
+        cin >> empresas[i].valorAtual;
+
+        cout << "Valor anterior: ";
+        cin >> empresas[i].valorAnterior;
+
+        empresas[i].variacao =
+        ((empresas[i].valorAtual - empresas[i].valorAnterior)
+        / empresas[i].valorAnterior) * 100;
+
+        cout << endl;
+    }
+
+    cout << "Digite um valor de acao: ";
+    cin >> valor;
+
+    cout << endl;
+    cout << "===== ACOES ABAIXO DO VALOR INFORMADO =====" << endl;
+
+    for (int i = 0; i < 3; i++) {
+
+        if (empresas[i].valorAtual < valor) {
+
+            cout << "Companhia " << i + 1 << endl;
+
+            cout << "Nome: " << empresas[i].nome << endl;
+            cout << "Area: " << empresas[i].area << endl;
+            cout << "Valor atual: " << empresas[i].valorAtual << endl;
+            cout << "Valor anterior: " << empresas[i].valorAnterior << endl;
+            cout << "Variacao (%): " << empresas[i].variacao << "%" << endl;
+
+            cout << endl;
+        }
+    }
+
+    return 0;
+}
