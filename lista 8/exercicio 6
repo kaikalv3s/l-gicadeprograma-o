@@ -2,11 +2,10 @@
 #include <string>
 using namespace std;
 
-string trocarExtensao(string arquivo)
+string alterar( string arquivo)
 {
-    int pos = arquivo.find('.');
-
-    arquivo.replace(pos + 1, 3, "bmp");
+   int pos = arquivo.find('.');
+   arquivo.replace(pos + 1, 3, "bmp");
 
     return arquivo;
 }
@@ -14,11 +13,9 @@ string trocarExtensao(string arquivo)
 int main()
 {
     string arquivo;
-    
-    cout<<"Digite o nome do seu arquivo com '.gif' no final: ";
-    cin>> arquivo;
-    
-    cout << "Novo arquivo: " << trocarExtensao(arquivo);
+    cout<<"Digite o nome do seu arquivo que contenha '.gif' no final: ";
+    cin>>arquivo;
+    cout<< alterar(arquivo);
     
     return 0;
 }
