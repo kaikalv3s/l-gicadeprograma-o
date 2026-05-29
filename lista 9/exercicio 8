@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+struct Vetor {
+    float x;
+    float y;
+    float z;
+};
+
+int main() {
+    Vetor v1, v2, soma;
+
+    cout << "Digite x y z do vetor 1: ";
+    cin >> v1.x >> v1.y >> v1.z;
+
+    cout << "Digite x y z do vetor 2: ";
+    cin >> v2.x >> v2.y >> v2.z;
+
+    soma.x = v1.x + v2.x;
+    soma.y = v1.y + v2.y;
+    soma.z = v1.z + v2.z;
+
+    cout << "\nSoma dos vetores:\n";
+    cout << "("
+         << soma.x << ", "
+         << soma.y << ", "
+         << soma.z << ")";
+
+    return 0;
+}
