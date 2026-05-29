@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+struct Data {
+    int dia;
+    int mes;
+    int ano;
+};
+
+struct Funcionario {
+    string nome;
+    int idade;
+    char sexo;
+    string cpf;
+    Data nascimento;
+    int setor;
+    string cargo;
+    float salario;
+};
+
+int main() {
+    Funcionario f;
+
+    cout << "Nome: ";
+    getline(cin, f.nome);
+
+    cout << "Idade: ";
+    cin >> f.idade;
+
+    cout << "Sexo (M/F): ";
+    cin >> f.sexo;
+
+    cin.ignore();
+
+    cout << "CPF: ";
+    getline(cin, f.cpf);
+
+    cout << "Dia nascimento: ";
+    cin >> f.nascimento.dia;
+
+    cout << "Mes nascimento: ";
+    cin >> f.nascimento.mes;
+
+    cout << "Ano nascimento: ";
+    cin >> f.nascimento.ano;
+
+    cout << "Codigo do setor: ";
+    cin >> f.setor;
+
+    cin.ignore();
+
+    cout << "Cargo: ";
+    getline(cin, f.cargo);
+
+    cout << "Salario: ";
+    cin >> f.salario;
+
+    cout << "\nDADOS DO FUNCIONARIO\n";
+    cout << "Nome: " << f.nome << endl;
+    cout << "Idade: " << f.idade << endl;
+    cout << "Sexo: " << f.sexo << endl;
+    cout << "CPF: " << f.cpf << endl;
+    cout << "Nascimento: "
+         << f.nascimento.dia << "/"
+         << f.nascimento.mes << "/"
+         << f.nascimento.ano << endl;
+
+    cout << "Setor: " << f.setor << endl;
+    cout << "Cargo: " << f.cargo << endl;
+    cout << "Salario: " << f.salario << endl;
+
+    return 0;
+}
