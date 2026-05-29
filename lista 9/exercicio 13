@@ -1,0 +1,73 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+struct Carta {
+    string naipe;
+    string valor;
+};
+
+int main() {
+
+    Carta baralho[52];
+
+    string naipes[4] = {"Copas", "Espadas", "Ouros", "Paus"};
+
+    string valores[13] = {
+        "A", "2", "3", "4", "5", "6", "7",
+        "8", "9", "10", "J", "Q", "K"
+    };
+
+    int indice = 0;
+
+
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 13; j++) {
+            baralho[indice].naipe = naipes[i];
+            baralho[indice].valor = valores[j];
+            indice++;
+        }
+    }
+
+    srand(time(0));
+
+    // Embaralhar
+    for(int i = 0; i < 52; i++) {
+        int aleatorio = rand() % 52;
+
+        Carta temp = baralho[i];
+        baralho[i] = baralho[aleatorio];
+        baralho[aleatorio] = temp;
+    }
+
+
+    Carta jogador1[5];
+    Carta jogador2[5];
+
+    for(int i = 0; i < 5; i++) {
+        jogador1[i] = baralho[i];
+        jogador2[i] = baralho[i + 5];
+    }
+
+    // Exibir cartas do jogador 1
+    cout << "=== JOGADOR 1 ===\n";
+
+    for(int i = 0; i < 5; i++) {
+        cout << jogador1[i].valor
+             << " de "
+             << jogador1[i].naipe << endl;
+    }
+
+
+    cout << "\n=== JOGADOR 2 ===\n";
+
+    for(int i = 0; i < 5; i++) {
+        cout << jogador2[i].valor
+             << " de "
+             << jogador2[i].naipe << endl;
+    }
+
+    return 0;
+}
