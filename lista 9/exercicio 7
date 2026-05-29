@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+
+struct Aluno {
+    int matricula;
+    string nome;
+    float nota1;
+    float nota2;
+    float nota3;
+    float media;
+};
+
+int main() {
+    Aluno alunos[5];
+
+    for(int i = 0; i < 5; i++) {
+        cout << "Aluno " << i + 1 << endl;
+
+        cout << "Matricula: ";
+        cin >> alunos[i].matricula;
+
+        cin.ignore();
+
+        cout << "Nome: ";
+        getline(cin, alunos[i].nome);
+
+        cout << "Nota 1: ";
+        cin >> alunos[i].nota1;
+
+        cout << "Nota 2: ";
+        cin >> alunos[i].nota2;
+
+        cout << "Nota 3: ";
+        cin >> alunos[i].nota3;
+
+        alunos[i].media =
+        (alunos[i].nota1 +
+         alunos[i].nota2 +
+         alunos[i].nota3) / 3;
+    }
+
+    int maiorNota1 = 0;
+    int maiorMedia = 0;
+    int menorMedia = 0;
+
+    for(int i = 1; i < 5; i++) {
+        if(alunos[i].nota1 > alunos[maiorNota1].nota1)
+            maiorNota1 = i;
+
+        if(alunos[i].media > alunos[maiorMedia].media)
+            maiorMedia = i;
+
+        if(alunos[i].media < alunos[menorMedia].media)
+            menorMedia = i;
+    }
+
+    cout << "\nMaior nota da prova 1: "
+         << alunos[maiorNota1].nome << endl;
+
+    cout << "Maior media: "
+         << alunos[maiorMedia].nome << endl;
+
+    cout << "Menor media: "
+         << alunos[menorMedia].nome << endl;
+
+    cout << "\nSituacao dos alunos:\n";
+
+    for(int i = 0; i < 5; i++) {
+        cout << alunos[i].nome << " - ";
+
+        if(alunos[i].media >= 6)
+            cout << "Aprovado";
+        else
+            cout << "Reprovado";
+
+        cout << endl;
+    }
+
+    return 0;
+}
