@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+struct Filme {
+    string nome;
+    int ano;
+    int duracao;
+};
+
+struct Diretor {
+    string nome;
+    int qtdFilmes;
+    Filme* filmes;
+};
+
+int main() {
+    Diretor diretores[10];
+
+    for (int i = 0; i < 10; i++) {
+        cout << "\nDiretor " << i + 1 << endl;
+
+        cout << "Nome: ";
+        getline(cin, diretores[i].nome);
+
+        cout << "Qtd de filmes: ";
+        cin >> diretores[i].qtdFilmes;
+        cin.ignore(); // limpar quebra de linha
+
+        diretores[i].filmes = new Filme[diretores[i].qtdFilmes];
+
+        for (int j = 0; j < diretores[i].qtdFilmes; j++) {
+            cout << "\nFilme " << j + 1 << endl;
+
+            cout << "Nome: ";
+            getline(cin, diretores[i].filmes[j].nome);
+
+            cout << "Ano: ";
+            cin >> diretores[i].filmes[j].ano;
+
+            cout << "Duracao: ";
+            cin >> diretores[i].filmes[j].duracao;
+
+            cin.ignore();
+        }
+    }
+
+    string busca;
+
+    while (true) {
+        cout << "\nBuscar diretor (ENTER para sair): ";
+        getline(cin, busca);
+
+        if (busca == "") break;
+
+        bool achou = false;
+
+        for (int i = 0; i < 10; i++) {
+            if (diretores[i].nome == busca) {
+                achou = true;
+
+                cout << "\nDiretor: " << diretores[i].nome << endl;
+
+                for (int j = 0; j < diretores[i].qtdFilmes; j++) {
+                    cout << diretores[i].filmes[j].nome
+                         << " - " << diretores[i].filmes[j].ano
+                         << " - " << diretores[i].filmes[j].duracao << " min\n";
+                }
+            }
+        }
+
+        if (!achou) cout << "Nao encontrado.\n";
+    }
+
+    return 0;
+}
