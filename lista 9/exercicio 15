@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+struct Ingrediente {
+    string nome;
+    float quantidade;
+};
+
+struct Receita {
+    string nome;
+    int qtdIngredientes;
+    Ingrediente ingredientes[50];
+};
+
+int main() {
+    Receita receitas[5];
+
+    for (int i = 0; i < 5; i++) {
+        cout << "\nReceita " << i + 1 << ":\n";
+
+        cout << "Nome da receita: ";
+        getline(cin, receitas[i].nome);
+
+        cout << "Quantidade de ingredientes: ";
+        cin >> receitas[i].qtdIngredientes;
+
+        cin.ignore();
+
+        for (int j = 0; j < receitas[i].qtdIngredientes; j++) {
+            cout << "Ingrediente " << j + 1 << " nome: ";
+            getline(cin, receitas[i].ingredientes[j].nome);
+
+            cout << "Quantidade: ";
+            cin >> receitas[i].ingredientes[j].quantidade;
+
+            cin.ignore();
+        }
+    }
+
+    string busca;
+
+    while (true) {
+        cout << "\nDigite o nome da receita para buscar (vazio para sair): ";
+        getline(cin, busca);
+
+        if (busca == "") break;
+
+        bool achou = false;
+
+        for (int i = 0; i < 5; i++) {
+            if (receitas[i].nome == busca) {
+                cout << "\nReceita encontrada!\n";
+                cout << "Ingredientes:\n";
+
+                for (int j = 0; j < receitas[i].qtdIngredientes; j++) {
+                    cout << "- " << receitas[i].ingredientes[j].nome
+                         << ": " << receitas[i].ingredientes[j].quantidade << endl;
+                }
+
+                achou = true;
+                break;
+            }
+        }
+
+        if (!achou) {
+            cout << "Receita nao encontrada!\n";
+        }
+    }
+
+    return 0;
+}
