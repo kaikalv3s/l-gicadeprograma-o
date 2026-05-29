@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+struct Horario {
+    int hora;
+    int minuto;
+    int segundo;
+};
+
+struct Data {
+    int dia;
+    int mes;
+    int ano;
+};
+
+struct Compromisso {
+    Data data;
+    Horario horario;
+    string descricao;
+};
+
+int main() {
+    Compromisso c;
+
+    cout << "Qual seu compromisso? ";
+    getline(cin, c.descricao);
+
+    cout << "Qual o dia: ";
+    cin >> c.data.dia;
+
+    cout << "Em qual mes: ";
+    cin >> c.data.mes;
+
+    cout << "De que ano: ";
+    cin >> c.data.ano;
+
+    cout << "Que horas: ";
+    cin >> c.horario.hora;
+
+    cout << "Que minutos: ";
+    cin >> c.horario.minuto;
+
+    cout << "Que segundos: ";
+    cin >> c.horario.segundo;
+
+    cout << "\nCompromisso:\n";
+    cout << c.descricao << endl;
+    cout << c.data.dia << "/" << c.data.mes << "/" << c.data.ano << endl;
+    cout << c.horario.hora << ":" << c.horario.minuto << ":" << c.horario.segundo << endl;
+
+    return 0;
+}
