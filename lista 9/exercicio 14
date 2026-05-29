@@ -1,0 +1,139 @@
+#include <iostream>
+using namespace std;
+
+struct Data { int d, m, a; };
+
+struct Pessoa {
+    string nome, email, obs;
+    string rua, bairro, cep, cidade, estado, pais, comp, tel;
+    int num, ddd;
+    Data nasc;
+};
+
+Pessoa ag[100];
+int n = 0;
+
+void print(Pessoa p) {
+    cout << "\n" << p.nome << " | " << p.email
+         << " | (" << p.ddd << ") " << p.tel
+         << "\n" << p.rua << ", " << p.num << " " << p.comp
+         << " - " << p.bairro << " - " << p.cidade << "/" << p.estado
+         << " - " << p.pais << " CEP: " << p.cep
+         << "\nNasc: " << p.nasc.d << "/" << p.nasc.m << "/" << p.nasc.a
+         << "\nObs: " << p.obs << "\n";
+}
+
+void inserir() {
+    Pessoa p;
+    cin >> ws;
+
+    getline(cin, p.nome);
+    getline(cin, p.email);
+    getline(cin, p.rua);
+    cin >> p.num;
+    cin >> ws;
+    getline(cin, p.comp);
+    getline(cin, p.bairro);
+    getline(cin, p.cep);
+    getline(cin, p.cidade);
+    getline(cin, p.estado);
+    getline(cin, p.pais);
+
+    cin >> p.ddd;
+    cin >> ws;
+    getline(cin, p.tel);
+
+    cin >> p.nasc.d >> p.nasc.m >> p.nasc.a;
+    cin >> ws;
+    getline(cin, p.obs);
+
+    int i = n - 1;
+    while (i >= 0 && ag[i].nome > p.nome) {
+        ag[i + 1] = ag[i];
+        i--;
+    }
+    ag[i + 1] = p;
+    n++;
+}
+
+void buscaNome() {
+    string x;
+    cin >> ws;
+    getline(cin, x);
+
+    for (int i = 0; i < n; i++)
+        if (ag[i].nome == x)
+            print(ag[i]);
+}
+
+void buscaMes() {
+    int m;
+    cin >> m;
+
+    for (int i = 0; i < n; i++)
+        if (ag[i].nasc.m == m)
+            print(ag[i]);
+}
+
+void buscaDM() {
+    int d, m;
+    cin >> d >> m;
+
+    for (int i = 0; i < n; i++)
+        if (ag[i].nasc.d == d && ag[i].nasc.m == m)
+            print(ag[i]);
+}
+
+void remover() {
+    string x;
+    cin >> ws;
+    getline(cin, x);
+
+    for (int i = 0; i < n; i++) {
+        if (ag[i].nome == x) {
+            for (int j = i; j < n - 1; j++)
+                ag[j] = ag[j + 1];
+            n--;
+            return;
+        }
+    }
+}
+
+void listar(int modo) {
+    for (int i = 0; i < n; i++) {
+        if (modo == 1)
+            cout << ag[i].nome << " | " << ag[i].tel << " | " << ag[i].email << "\n";
+        else
+            print(ag[i]);
+    }
+}
+
+int main() {
+    int op;
+
+    do {
+        cout << "\n===== AGENDA =====\n";
+        cout << "1 Inserir\n";
+        cout << "2 Buscar Nome\n";
+        cout << "3 Buscar Mes\n";
+        cout << "4 Buscar Dia/Mes\n";
+        cout << "5 Remover\n";
+        cout << "6 Listar resumido\n";
+        cout << "7 Listar completo\n";
+        cout << "0 Sair\n";
+        cout << "Opcao: ";
+
+        cin >> op;
+
+        if (op == 1) inserir();
+        else if (op == 2) buscaNome();
+        else if (op == 3) buscaMes();
+        else if (op == 4) buscaDM();
+        else if (op == 5) remover();
+        else if (op == 6) listar(1);
+        else if (op == 7) listar(2);
+
+    } while (op != 0);
+
+    return 0;
+}
