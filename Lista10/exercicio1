@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+int somaDiagonalPrincipal(int **matriz, int n)
+{
+    int soma = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        soma += matriz[i][i];
+    }
+
+    return soma;
+}
+
+int main()
+{
+    int n;
+
+    cout << "Digite o tamanho da matriz: ";
+    cin >> n;
+
+    int **matriz = new int*[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        matriz[i] = new int[n];
+    }
+
+    cout << "Digite os elementos da matriz:\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cout << "matriz[" << i << "][" << j << "]: ";
+            cin >> matriz[i][j];
+        }
+    }
+
+    cout << "Soma da diagonal principal: "
+         << somaDiagonalPrincipal(matriz, n) << endl;
+
+    for (int i = 0; i < n; i++)
+    {
+        delete[] matriz[i];
+    }
+
+    delete[] matriz;
+
+    return 0;
+}
