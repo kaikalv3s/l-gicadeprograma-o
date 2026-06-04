@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+void preenche(int *vet, int tam, int n)
+{
+    int *p = vet;
+    int *fim = vet + tam;
+
+    while (p < fim)
+    {
+        *p = n;
+        p++;
+    }
+}
+
+void preencheFloat(float *vet, int tam, float n)
+{
+    float *p = vet;
+    float *fim = vet + tam;
+
+    while (p < fim)
+    {
+        *p = n;
+        p++;
+    }
+}
+
+int main()
+{
+    int vetInt[5];
+    float vetFloat[5];
+
+    preenche(vetInt, 5, 10);
+    preencheFloat(vetFloat, 5, 3.5f);
+
+    printf("Vetor de inteiros:\n");
+    for (int i = 0; i < 5; i++)
+        printf("%d ", vetInt[i]);
+
+    printf("\n\nVetor de reais:\n");
+    for (int i = 0; i < 5; i++)
+        printf("%.1f ", vetFloat[i]);
+
+    printf("\n");
+
+    return 0;
+}
