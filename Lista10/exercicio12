@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void imprimeInt(int *vet, int tam)
+{
+    int *p = vet;
+    int *fim = vet + tam;
+
+    while (p < fim)
+    {
+        printf("%d ", *p);
+        p++;
+    }
+
+    printf("\n");
+}
+
+void imprimeFloat(float *vet, int tam)
+{
+    float *p = vet;
+    float *fim = vet + tam;
+
+    while (p < fim)
+    {
+        printf("%.2f ", *p);
+        p++;
+    }
+
+    printf("\n");
+}
+
+int main()
+{
+    int vetInt[5] = {10, 20, 30, 40, 50};
+    float vetFloat[5] = {1.5, 2.5, 3.5, 4.5, 5.5};
+
+    printf("Vetor de inteiros:\n");
+    imprimeInt(vetInt, 5);
+
+    printf("Vetor de reais:\n");
+    imprimeFloat(vetFloat, 5);
+
+    return 0;
+}
