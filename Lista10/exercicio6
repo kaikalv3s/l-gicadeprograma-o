@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+void meuStrcpy(char *destino, const char *origem)
+{
+    while (*origem != '\0')
+    {
+        *destino = *origem;
+        destino++;
+        origem++;
+    }
+
+    *destino = '\0'; // finaliza a string
+}
+
+int main()
+{
+    char origem[100];
+    char destino[100];
+
+    cout << "Digite uma string: ";
+    cin.getline(origem, 100);
+
+    meuStrcpy(destino, origem);
+
+    cout << "Origem: " << origem << endl;
+    cout << "Destino: " << destino << endl;
+
+    return 0;
+}
