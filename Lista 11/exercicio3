@@ -1,0 +1,69 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <sstream>
+using namespace std;
+
+struct Aluno {
+    string nome;
+    string matricula;
+    float nota;
+};
+
+int main() {
+    ifstream entrada("alunos.csv");
+
+    vector<Aluno> alunos;
+    string linha;
+
+    getline(entrada, linha); // cabeçalho
+
+    while (getline(entrada, linha)) {
+        stringstream ss(linha);
+
+        Aluno a;
+        string notaStr;
+
+        getline(ss, a.nome, ',');
+        getline(ss, a.matricula, ',');
+        getline(ss, notaStr, ',');
+
+        a.nota = stof(notaStr);
+
+        alunos.push_back(a);
+    }
+
+    entrada.close();
+
+    string matriculaBusca;
+    cout << "Informe a matricula: ";
+    cin >> matriculaBusca;
+
+    float novaNota;
+
+    for (auto &a : alunos) {
+        if (a.matricula == matriculaBusca) {
+            cout << "Nova nota: ";
+            cin >> novaNota;
+
+            a.nota = novaNota;
+            break;
+        }
+    }
+
+    ofstream saida("alunos.csv");
+
+    saida << "nome,matricula,nota\n";
+
+    for (auto a : alunos) {
+        saida << a.nome << ","
+              << a.matricula << ","
+              << a.nota << "\n";
+    }
+
+    saida.close();
+
+    cout << "Arquivo atualizado!\n";
+
+    return 0;
+}
