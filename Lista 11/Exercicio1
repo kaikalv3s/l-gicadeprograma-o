@@ -1,0 +1,39 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream arquivo("alunos.csv");
+
+    arquivo << "nome,matricula,nota\n";
+
+    int n;
+    cout << "Quantidade de alunos: ";
+    cin >> n;
+    cin.ignore();
+
+    string nome, matricula;
+    float nota;
+
+    for (int i = 0; i < n; i++) {
+        cout << "\nAluno " << i + 1 << endl;
+
+        cout << "Nome: ";
+        getline(cin, nome);
+
+        cout << "Matricula: ";
+        getline(cin, matricula);
+
+        cout << "Nota: ";
+        cin >> nota;
+        cin.ignore();
+
+        arquivo << nome << "," << matricula << "," << nota << "\n";
+    }
+
+    arquivo.close();
+
+    cout << "\nArquivo criado com sucesso!\n";
+
+    return 0;
+}
