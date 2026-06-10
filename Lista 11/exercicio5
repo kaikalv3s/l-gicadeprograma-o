@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int matriz[3][3];
+
+    cout << "Digite os elementos da matriz:\n";
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cin >> matriz[i][j];
+        }
+    }
+
+    int somaPrincipal = 0;
+    int somaSecundaria = 0;
+    int maior = matriz[0][0];
+
+    for (int i = 0; i < 3; i++) {
+        somaPrincipal += matriz[i][i];
+        somaSecundaria += matriz[i][2 - i];
+
+        for (int j = 0; j < 3; j++) {
+            if (matriz[i][j] > maior) {
+                maior = matriz[i][j];
+            }
+        }
+    }
+
+    cout << "\nSoma diagonal principal: "
+         << somaPrincipal << endl;
+
+    cout << "Soma diagonal secundaria: "
+         << somaSecundaria << endl;
+
+    cout << "Maior elemento: "
+         << maior << endl;
+
+    return 0;
+}
