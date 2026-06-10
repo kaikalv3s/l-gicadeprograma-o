@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+using namespace std;
+
+int main() {
+    ifstream arquivo("alunos.csv");
+
+    string linha;
+
+    getline(arquivo, linha); // pula cabeçalho
+
+    cout << "LISTA DE ALUNOS\n\n";
+
+    while (getline(arquivo, linha)) {
+        stringstream ss(linha);
+
+        string nome, matricula, nota;
+
+        getline(ss, nome, ',');
+        getline(ss, matricula, ',');
+        getline(ss, nota, ',');
+
+        cout << "Nome: " << nome << endl;
+        cout << "Matricula: " << matricula << endl;
+        cout << "Nota: " << nota << endl;
+        cout << "----------------------\n";
+    }
+
+    arquivo.close();
+
+    return 0;
+}
