@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+using namespace std;
+
+int main() {
+    ifstream arquivo("produtos.csv");
+
+    string linha;
+
+    getline(arquivo, linha); // cabeçalho
+
+    double total = 0;
+
+    while (getline(arquivo, linha)) {
+        stringstream ss(linha);
+
+        string codigo, nome, precoStr, qtdStr;
+
+        getline(ss, codigo, ',');
+        getline(ss, nome, ',');
+        getline(ss, precoStr, ',');
+        getline(ss, qtdStr, ',');
+
+        double preco = stod(precoStr);
+        int quantidade = stoi(qtdStr);
+
+        total += preco * quantidade;
+    }
+
+    arquivo.close();
+
+    cout << "Valor total do estoque: R$ "
+         << total << endl;
+
+    return 0;
+}
