@@ -1,0 +1,250 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+
+using namespace std;
+
+struct Aluno {
+    string nome;
+    string matricula;
+    float nota;
+};
+
+void cadastrarAlunos() {
+    ofstream arquivo("alunos.csv");
+
+    arquivo << "nome,matricula,nota\n";
+
+    int n;
+    cout << "Quantidade de alunos: ";
+    cin >> n;
+    cin.ignore();
+
+    for (int i = 0; i < n; i++) {
+        Aluno a;
+
+        cout << "\nAluno " << i + 1 << endl;
+
+        cout << "Nome: ";
+        getline(cin, a.nome);
+
+        cout << "Matricula: ";
+        getline(cin, a.matricula);
+
+        cout << "Nota: ";
+        cin >> a.nota;
+        cin.ignore();
+
+        arquivo << a.nome << ","
+                << a.matricula << ","
+                << a.nota << "\n";
+    }
+
+    arquivo.close();
+    cout << "\nArquivo criado com sucesso!\n";
+}
+
+void exibirAlunos() {
+    ifstream arquivo("alunos.csv");
+
+    string linha;
+
+    getline(arquivo, linha);
+
+    cout << "\nLISTA DE ALUNOS\n\n";
+
+    while (getline(arquivo, linha)) {
+        stringstream ss(linha);
+
+        string nome, matricula, nota;
+
+        getline(ss, nome, ',');
+        getline(ss, matricula, ',');
+        getline(ss, nota, ',');
+
+        cout << "Nome: " << nome << endl;
+        cout << "Matricula: " << matricula << endl;
+        cout << "Nota: " << nota << endl;
+        cout << "-------------------\n";
+    }
+
+    arquivo.close();
+}
+
+void alterarNota() {
+    ifstream entrada("alunos.csv");
+
+    vector<Aluno> alunos;
+    string linha;
+
+    getline(entrada, linha);
+
+    while (getline(entrada, linha)) {
+        stringstream ss(linha);
+
+        Aluno a;
+        string notaStr;
+
+        getline(ss, a.nome, ',');
+        getline(ss, a.matricula, ',');
+        getline(ss, notaStr, ',');
+
+        a.nota = stof(notaStr);
+
+        alunos.push_back(a);
+    }
+
+    entrada.close();
+
+    string matriculaBusca;
+    cout << "Digite a matricula: ";
+    cin >> matriculaBusca;
+
+    float novaNota;
+    bool encontrou = false;
+
+    for (int i = 0; i < alunos.size(); i++) {
+        if (alunos[i].matricula == matriculaBusca) {
+            cout << "Nova nota: ";
+            cin >> novaNota;
+
+            alunos[i].nota = novaNota;
+            encontrou = true;
+        }
+    }
+
+    if (!encontrou) {
+        cout << "Aluno nao encontrado!\n";
+        return;
+    }
+
+    ofstream saida("alunos.csv");
+
+    saida << "nome,matricula,nota\n";
+
+    for (int i = 0; i < alunos.size(); i++) {
+        saida << alunos[i].nome << ","
+              << alunos[i].matricula << ","
+              << alunos[i].nota << "\n";
+    }
+
+    saida.close();
+
+    cout << "Nota atualizada com sucesso!\n";
+}
+
+void calcularEstoque() {
+    ifstream arquivo("produtos.csv");
+
+    string linha;
+
+    getline(arquivo, linha);
+
+    double total = 0;
+
+    while (getline(arquivo, linha)) {
+        stringstream ss(linha);
+
+        string codigo, nome, precoStr, qtdStr;
+
+        getline(ss, codigo, ',');
+        getline(ss, nome, ',');
+        getline(ss, precoStr, ',');
+        getline(ss, qtdStr, ',');
+
+        double preco = stod(precoStr);
+        int quantidade = stoi(qtdStr);
+
+        total += preco * quantidade;
+    }
+
+    arquivo.close();
+
+    cout << "Valor total do estoque: R$ "
+         << total << endl;
+}
+
+void matriz3x3() {
+    int matriz[3][3];
+
+    cout << "Digite os elementos da matriz:\n";
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cin >> matriz[i][j];
+        }
+    }
+
+    int somaPrincipal = 0;
+    int somaSecundaria = 0;
+    int maior = matriz[0][0];
+
+    for (int i = 0; i < 3; i++) {
+        somaPrincipal += matriz[i][i];
+        somaSecundaria += matriz[i][2 - i];
+
+        for (int j = 0; j < 3; j++) {
+            if (matriz[i][j] > maior) {
+                maior = matriz[i][j];
+            }
+        }
+    }
+
+    cout << "\nSoma da diagonal principal: "
+         << somaPrincipal << endl;
+
+    cout << "Soma da diagonal secundaria: "
+         << somaSecundaria << endl;
+
+    cout << "Maior elemento da matriz: "
+         << maior << endl;
+}
+
+int main() {
+    int opcao;
+
+    do {
+        cout << "\n===== MENU =====\n";
+        cout << "1 - Cadastrar alunos\n";
+        cout << "2 - Exibir alunos\n";
+        cout << "3 - Alterar nota\n";
+        cout << "4 - Calcular estoque\n";
+        cout << "5 - Operacoes com matriz\n";
+        cout << "0 - Sair\n";
+        cout << "Opcao: ";
+        cin >> opcao;
+
+        switch (opcao) {
+            case 1:
+                cadastrarAlunos();
+                break;
+
+            case 2:
+                exibirAlunos();
+                break;
+
+            case 3:
+                alterarNota();
+                break;
+
+            case 4:
+                calcularEstoque();
+                break;
+
+            case 5:
+                matriz3x3();
+                break;
+
+            case 0:
+                cout << "Encerrando...\n";
+                break;
+
+            default:
+                cout << "Opcao invalida!\n";
+        }
+
+    } while (opcao != 0);
+
+    return 0;
+}
