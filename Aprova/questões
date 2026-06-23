@@ -1,0 +1,739 @@
+#include <iostream>
+using namespace std;
+
+const char* encontrar_primeira_ocorrencia(
+    const char* principal, const char* procurada)
+{
+    while(*principal != '\0')
+    {
+        const char* p1 = principal;
+        const char* p2 = procurada;
+        
+        while(*p1 != '\0' && *p2 != '\0' && *p1 == *p2)
+        {
+            p1++;
+            p2++;
+        }
+        
+        if (*p2 == '\0')
+        {
+            return principal;
+        }
+        principal++;
+    }
+    return nullptr;
+} 
+
+int main()
+{
+    const char* main_str = "programin in c++ is fun";
+    const char* sub_str = "c++";
+    
+    const char* resultado = encontrar_primeira_ocorrencia(
+    main_str, sub_str);
+    
+    if (resultado != nullptr)
+    {
+    cout<<"Substring encontrada iniciando em: "<<resultado<<endl;
+    cout<<"String original a partir da ocorrência: "<<resultado;
+    }
+    
+    return 0;
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+using namespace std;
+
+struct Aluno {
+    char nome[50];
+    float notas[5];
+};
+
+int main() {
+    ifstream arquivo("notas.txt");
+
+    if (!arquivo) {
+        cout << "Erro ao abrir o arquivo!" << endl;
+        return 1;
+    }
+
+    Aluno alunos[100];
+    int qtd = 0;
+
+    float somaTurma[5] = {0};
+
+    while (arquivo >> alunos[qtd].nome) {
+
+        float somaAluno = 0;
+
+        for (int i = 0; i < 5; i++) {
+            arquivo >> alunos[qtd].notas[i];
+
+            somaAluno += alunos[qtd].notas[i];
+            somaTurma[i] += alunos[qtd].notas[i];
+        }
+
+        cout << "Aluno: " << alunos[qtd].nome << endl;
+        cout << fixed << setprecision(2);
+        cout << "Media: " << somaAluno / 5 << endl << endl;
+
+        qtd++;
+    }
+
+    cout << "----------------------------------" << endl;
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Media da Nota " << i + 1 << ": "
+             << somaTurma[i] / qtd << endl;
+    }
+
+    arquivo.close();
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+struct Produto {
+    int codigo;
+    char nome[50];
+    int quantidade;
+    float preco;
+};
+
+Produto maiorPreco(Produto *produtos, int n) {
+    int indice = 0;
+
+    for (int i = 1; i < n; i++) {
+        if (produtos[i].preco > produtos[indice].preco) {
+            indice = i;
+        }
+    }
+
+    return produtos[indice];
+}
+
+Produto maiorEstoque(Produto *produtos, int n) {
+    int indice = 0;
+
+    for (int i = 1; i < n; i++) {
+        if (produtos[i].quantidade > produtos[indice].quantidade) {
+            indice = i;
+        }
+    }
+
+    return produtos[indice];
+}
+
+int main() {
+
+    int N;
+
+    cout << "Quantidade de produtos: ";
+    cin >> N;
+
+    Produto *produtos = new Produto[N];
+
+    for (int i = 0; i < N; i++) {
+
+        cout << "\nProduto " << i + 1 << endl;
+
+        cout << "Codigo: ";
+        cin >> produtos[i].codigo;
+
+        cout << "Nome: ";
+        cin >> produtos[i].nome;
+
+        cout << "Quantidade: ";
+        cin >> produtos[i].quantidade;
+
+        cout << "Preco: ";
+        cin >> produtos[i].preco;
+    }
+
+    Produto p1 = maiorPreco(produtos, N);
+    Produto p2 = maiorEstoque(produtos, N);
+
+    cout << "\nProduto com maior preco:" << endl;
+    cout << p1.nome << " - R$ " << p1.preco << endl;
+
+    cout << "\nProduto com maior estoque:" << endl;
+    cout << p2.nome << " - " << p2.quantidade << " unidades" << endl;
+
+    delete[] produtos;
+
+    return 0;
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+struct Hole {
+    int x;
+    int y;
+};
+
+double distancia(Hole a, Hole b) {
+    return sqrt(pow(a.x - b.x, 2) +
+                pow(a.y - b.y, 2));
+}
+
+int main() {
+
+    int N;
+    cin >> N;
+
+    Hole holes[1000];
+
+    for (int i = 0; i < N; i++) {
+        cin >> holes[i].x >> holes[i].y;
+    }
+
+    double menorDiametro = 1e18;
+
+    for (int i = 0; i < N; i++) {
+
+        double maiorDistancia = 0;
+
+        for (int j = 0; j < N; j++) {
+
+            double d = distancia(holes[i], holes[j]);
+
+            if (d > maiorDistancia) {
+                maiorDistancia = d;
+            }
+        }
+
+        double raio = maiorDistancia + 2.5;
+        double diametro = 2 * raio;
+
+        if (diametro < menorDiametro) {
+            menorDiametro = diametro;
+        }
+    }
+
+    cout << fixed << setprecision(2)
+         << menorDiametro << endl;
+
+    return 0;
+} 
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+    string palavras[6];
+
+    cout << "Digite 6 palavras:\n";
+
+    for (int i = 0; i < 6; i++) {
+        cin >> palavras[i];
+    }
+
+    cout << "\nOrdem inversa:\n";
+
+    for (int i = 5; i >= 0; i--) {
+        cout << palavras[i] << endl;
+    }
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+int main() {
+
+    int n;
+
+    cout << "Quantidade de elementos: ";
+    cin >> n;
+
+    int *vetor = new int[n];
+
+    for (int i = 0; i < n; i++) {
+        cin >> vetor[i];
+    }
+
+    int maior = INT_MIN;
+    int segundoMaior = INT_MIN;
+
+    for (int i = 0; i < n; i++) {
+
+        if (vetor[i] > maior) {
+            segundoMaior = maior;
+            maior = vetor[i];
+        }
+        else if (vetor[i] > segundoMaior &&
+                 vetor[i] != maior) {
+            segundoMaior = vetor[i];
+        }
+    }
+
+    cout << "Segundo maior elemento: "
+         << segundoMaior << endl;
+
+    delete[] vetor;
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+struct Ponto {
+    float x;
+    float y;
+};
+
+struct Retangulo {
+    float xmin;
+    float ymin;
+    float xmax;
+    float ymax;
+};
+
+int estaDentroRetangulo(Ponto p, Retangulo ret) {
+
+    if (p.x >= ret.xmin &&
+        p.x <= ret.xmax &&
+        p.y >= ret.ymin &&
+        p.y <= ret.ymax) {
+
+        return 1;
+    }
+
+    return 0;
+}
+
+int main() {
+
+    Retangulo ret;
+
+    cout << "xmin ymin xmax ymax: ";
+    cin >> ret.xmin >> ret.ymin
+        >> ret.xmax >> ret.ymax;
+
+    int N;
+
+    cout << "Quantidade de pontos: ";
+    cin >> N;
+
+    Ponto *pontos = new Ponto[N];
+
+    for (int i = 0; i < N; i++) {
+
+        cout << "Ponto " << i + 1 << ": ";
+        cin >> pontos[i].x >> pontos[i].y;
+    }
+
+    cout << endl;
+
+    for (int i = 0; i < N; i++) {
+
+        if (estaDentroRetangulo(pontos[i], ret)) {
+            cout << "Ponto("
+                 << pontos[i].x << ", "
+                 << pontos[i].y
+                 << "): SIM" << endl;
+        }
+        else {
+            cout << "Ponto("
+                 << pontos[i].x << ", "
+                 << pontos[i].y
+                 << "): NAO" << endl;
+        }
+    }
+
+    delete[] pontos;
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+int main() {
+
+    int n;
+
+    cout << "Digite um numero impar: ";
+    cin >> n;
+
+    int inicio = 1;
+    int fim = n;
+
+    while (inicio <= fim) {
+
+        for (int i = inicio; i <= fim; i++) {
+            cout << i << " ";
+        }
+
+        cout << endl;
+
+        inicio++;
+        fim--;
+    }
+
+    return 0;
+}
+}
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// QUESTÃO 1
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int N;
+
+    cout << "Digite o tamanho da matriz: ";
+    cin >> N;
+
+    int **matriz = new int*[N];
+
+    for (int i = 0; i < N; i++) {
+        matriz[i] = new int[N];
+    }
+
+    int topo = 0;
+    int baixo = N - 1;
+    int esquerda = 0;
+    int direita = N - 1;
+
+    int valor = 1;
+
+    while (topo <= baixo && esquerda <= direita) {
+
+        for (int i = esquerda; i <= direita; i++)
+            matriz[topo][i] = valor++;
+
+        topo++;
+
+        for (int i = topo; i <= baixo; i++)
+            matriz[i][direita] = valor++;
+
+        direita--;
+
+        if (topo <= baixo) {
+            for (int i = direita; i >= esquerda; i--)
+                matriz[baixo][i] = valor++;
+
+            baixo--;
+        }
+
+        if (esquerda <= direita) {
+            for (int i = baixo; i >= topo; i--)
+                matriz[i][esquerda] = valor++;
+
+            esquerda++;
+        }
+    }
+
+    cout << endl;
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            cout << matriz[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    for (int i = 0; i < N; i++) {
+        delete[] matriz[i];
+    }
+
+    delete[] matriz;
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// QUESTÃO 2
+
+#include <iostream>
+#include <fstream>
+#include <cmath>
+
+using namespace std;
+
+struct Ponto {
+    double x;
+    double y;
+};
+
+struct Circulo {
+    double raio;
+    int pontos;
+};
+
+int main() {
+
+    ifstream arquivo("alvo.txt");
+
+    Circulo circulos[4];
+
+    for (int i = 0; i < 4; i++) {
+        arquivo >> circulos[i].raio
+                >> circulos[i].pontos;
+    }
+
+    arquivo.close();
+
+    Ponto dardo;
+
+    cout << "Digite x e y: ";
+    cin >> dardo.x >> dardo.y;
+
+    double distancia =
+        sqrt(dardo.x * dardo.x +
+             dardo.y * dardo.y);
+
+    int pontuacao = 0;
+
+    for (int i = 0; i < 4; i++) {
+
+        if (distancia <= circulos[i].raio) {
+            pontuacao = circulos[i].pontos;
+            break;
+        }
+    }
+
+    cout << "Pontuacao: "
+         << pontuacao << endl;
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// QUESTÃO 3
+
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+string ordenar(string palavra) {
+
+    transform(
+        palavra.begin(),
+        palavra.end(),
+        palavra.begin(),
+        ::tolower
+    );
+
+    sort(
+        palavra.begin(),
+        palavra.end()
+    );
+
+    return palavra;
+}
+
+bool ehAnagrama(string alvo,
+                string candidata) {
+
+    string alvoOriginal = alvo;
+    string candidataOriginal = candidata;
+
+    transform(
+        alvoOriginal.begin(),
+        alvoOriginal.end(),
+        alvoOriginal.begin(),
+        ::tolower
+    );
+
+    transform(
+        candidataOriginal.begin(),
+        candidataOriginal.end(),
+        candidataOriginal.begin(),
+        ::tolower
+    );
+
+    if (alvoOriginal == candidataOriginal)
+        return false;
+
+    return ordenar(alvo) ==
+           ordenar(candidata);
+}
+
+int main() {
+
+    string alvo;
+    int K;
+
+    cout << "Palavra alvo: ";
+    cin >> alvo;
+
+    cout << "Quantidade de palavras: ";
+    cin >> K;
+
+    string palavra;
+
+    cout << "\nAnagramas encontrados:\n";
+
+    for (int i = 0; i < K; i++) {
+
+        cin >> palavra;
+
+        if (ehAnagrama(alvo, palavra)) {
+            cout << palavra << endl;
+        }
+    }
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// QUESTÃO 4
+
+#include <iostream>
+
+using namespace std;
+
+void multiplicacao(
+    int **A,
+    int **B,
+    int **C,
+    int m,
+    int n,
+    int p
+) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < p; j++) {
+
+            C[i][j] = 0;
+
+            for (int k = 0; k < n; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}
+
+int main() {
+
+    int m, n, n2, p;
+
+    cout << "Linhas de A: ";
+    cin >> m;
+
+    cout << "Colunas de A: ";
+    cin >> n;
+
+    int **A = new int*[m];
+
+    for (int i = 0; i < m; i++) {
+        A[i] = new int[n];
+    }
+
+    cout << "\nElementos da matriz A:\n";
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> A[i][j];
+        }
+    }
+
+    cout << "\nLinhas de B: ";
+    cin >> n2;
+
+    cout << "Colunas de B: ";
+    cin >> p;
+
+    if (n != n2) {
+
+        cout << "Multiplicacao impossivel!" << endl;
+
+        for (int i = 0; i < m; i++) {
+            delete[] A[i];
+        }
+
+        delete[] A;
+
+        return 0;
+    }
+
+    int **B = new int*[n2];
+
+    for (int i = 0; i < n2; i++) {
+        B[i] = new int[p];
+    }
+
+    cout << "\nElementos da matriz B:\n";
+
+    for (int i = 0; i < n2; i++) {
+        for (int j = 0; j < p; j++) {
+            cin >> B[i][j];
+        }
+    }
+
+    int **C = new int*[m];
+
+    for (int i = 0; i < m; i++) {
+        C[i] = new int[p];
+    }
+
+    multiplicacao(A, B, C, m, n, p);
+
+    cout << "\nMatriz Resultante:\n";
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < p; j++) {
+            cout << C[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    for (int i = 0; i < m; i++) {
+        delete[] A[i];
+    }
+    delete[] A;
+
+    for (int i = 0; i < n2; i++) {
+        delete[] B[i];
+    }
+    delete[] B;
+
+    for (int i = 0; i < m; i++) {
+        delete[] C[i];
+    }
+    delete[] C;
+
+    return 0;
+}
